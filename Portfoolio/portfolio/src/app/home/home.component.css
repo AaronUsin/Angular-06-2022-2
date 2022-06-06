@@ -38,3 +38,27 @@
     background-color: brown;
     margin: 50px auto;
 }
+.facebook-button img {
+    height: 30px;
+    padding: 20px 10px;
+}
+.facebook-button span {
+    position: relative;
+    top: -30px;
+}
+.facebook-button:hover {
+    color:#7ba9c3;
+    cursor: pointer;
+}
+.instagram-button img {
+    height: 30px;
+    padding: 20px 10px;
+}
+.instagram-button span {
+    position: relative;
+    top: -30px;
+}
+.instagram-button:hover {
+    color:#7ba9c3;
+    cursor: pointer;
+}
