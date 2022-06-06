@@ -1,3 +1,41 @@
 <p>avaleht works!</p>
+<div>Audi</div>
+<div>20 000</div>
+<div>True</div>
 
-<img src="pilt" src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg"/>
+<br><br>
+
+<div *ngIf="numbriline > 10000">{{ s6naline }}</div>
+<div *ngIf="kahendV22rtus">{{ numbriline }}</div>
+<div>{{ kahendV22rtus }}</div>
+
+<br><br>
+
+<button *ngIf="s6naline !== 'Uus nimi'"(click)="muudaS6nalineV22rtus()">Muuda postiindeks</button>
+
+<button *ngIf="s6naline !== 'Tagasi nimi'"(click)="muudaS6nalineV22rtusOriginaali()">Muuda postiindeks tagasi</button>
+
+<button *ngIf="numbriline !== 3123"(click)="muudaNumbrilineV22rtus()">Muuda number</button>
+
+<button *ngIf="numbriline !== 1312312"(click)="muudaNumbrilineV22rtusOriginaali()">Muuda number tagasi</button>
+
+<button *ngIf="kahendV22rtus!== false"(click)="muudaKahendV22rtus()">Muuda mitteaktiivseks</button>
+
+<button *ngIf="kahendV22rtus== true"(click)="muudaKahendV22rtusOriginaali()">Muuda aktiivseks</button>
+
+<button (click)="aktiivsusMuutus()">Aktiivne/Mitteaktiivne</button>
+
+<button (click)="aktiivsusMuutus()">Aktiivne/Mitteaktiivne</button>
+
+<button (click)="muudaK6ik()">Muuda väärtused</button>
+
+<br><br>
+<img class="pilt" src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg"/>
+
+<!-- 
+    tumesinine-tag--väljakuvatava liik(nupp,pilt,tekst)
+    helisinine - HTML atribuut - annab tag'ile omadused
+    kollane - funktsioon (sulud on taga)
+    valge - kasutajale nähtav(mis ei muutu)
+    oranž - sõnalised muutujad, mis annavad HTML atribuutdile väärtused
+-->
