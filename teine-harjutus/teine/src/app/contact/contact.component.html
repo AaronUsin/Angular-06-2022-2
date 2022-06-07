@@ -7,3 +7,10 @@
     <input type="text"><br><br>
     <input type="submit" value="Submit">
 </form>
+
+<div> {{aadress}} </div>
+<div> {{telefoniNumber}} </div>
+<div> {{email}} </div>
+<div *ngIf="onInglisekeelne">Vaatad inglisekeelset veebisaiti</div>
+
+<button (click)="muudaIngliseKeelseks()">Näita inglise keeles</button>

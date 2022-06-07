@@ -1,3 +1,12 @@
+<div>Meie töötajad:</div>
+<br>
+<div>Ott Tänak - kuller <button (click)="n2itaKontaktAndmeid('Oti kontaktandmed')">Võta ühendust</button></div>
+<div>Kerttu Jukkum - lilleseadja <button (click)="n2itaKontaktAndmeid('email: blablabla')">Võta ühendust</button></div>
+<div>Gustav Adolf - reklaaminägu <button (click)="n2itaKontaktAndmeid('telefon: 5555555')">Võta ühendust</button></div>
+<div>Peeter Võsa - vaidluste osakond <button (click)="n2itaKontaktAndmeid('hetkel puudub aga võta üldtelefoni kaudu ühendust')">Võta ühendust</button></div>
+
+<div *ngIf="kontaktAndmed !== ''">Tema kontaktandmed: {{kontaktAndmed}} </div>
+
 <p>Tutvustame enda tehtud töid ja tegemisi</p>
 <p>Siin on meie esimene tehtud töö</p>
 <img height="256px" src="pilt" src="https://media.sweetwater.com/api/i/b-original__w-300__h-300__bg-ffffff__q-85__ha-ebde89f3782548e9__hmac-3cd96f5700b5a1ceead6e1b2b4b840ab544dc837/images/items/350/PAC012MR.jpg"/>
