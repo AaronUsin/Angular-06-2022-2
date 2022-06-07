@@ -4,3 +4,23 @@
     <li>uued kere kujud</li>
     <li>uued värvid</li>
 </ul>
+<div *ngIf="ollakseHiiregaT2rniPeal">Leht on inglise keeles! Vaheta keelt alumise nupu kaudu.</div>
+<h2>
+    {{uudis}}
+    <span
+    (mouseenter)="hiiregaYleMinnes()"
+    (mouseleave)="hiirega2raMinnes()"
+    *ngIf="onInglisekeelne" class="punane-t2rn">*</span>
+</h2>
+
+<div>
+     {{uudiseSisu}}
+      <span 
+    (mouseenter)="hiiregaYleMinnes()"
+    (mouseleave)="hiirega2raMinnes()"
+    *ngIf=" onInglisekeelne" class="punane-t2rn">*</span> 
+</div>
+
+<button (click)="muudaEestiKeelseks()">Eestikeelne</button>
+<button (click)="muudaIngliseKeelseks()">Inglisekeelne</button>
+<button (click)="muudaSoomeKeelseks()">Soomekeelne</button>
