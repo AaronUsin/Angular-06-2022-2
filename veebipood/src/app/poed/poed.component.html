@@ -1,0 +1,12 @@
+<!--<div (click)="v6taYhendust('56943912')">Kristiine keskus</div>
+<div (click)="v6taYhendust('56757390')">Helsinki keskus</div>
+<div (click)="v6taYhendust('53423923')">smt keskus</div>
+<div (click)="v6taYhendust('52349320')">asfasx keskus</div>
+<div (click)="v6taYhendust('53242382')">mingi keskus</div>
+<div (click)="v6taYhendust('52343242')">Tasku keskus</div>
+<div (click)="v6taYhendust('55434354')">Ülemiste keskus</div> -->
+
+<div *ngFor="let keskuseNimi of keskused"> {{keskuseNimi}} keskus</div>
+<br><br>
+
+<div *ngIf="v2ljakuvatavKontakt !== ''">Nende kontakt on: {{v2ljakuvatavKontakt}} </div>

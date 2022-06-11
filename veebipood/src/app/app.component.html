@@ -1,7 +1,16 @@
 <button>Vajuta mind</button>
+<br><br>
 <div>misasja</div>
-<router-outlet></router-outlet>
+tekst2
 
+<div>Lehe keel: {{programmiKeel}} </div>
+<button (click)="valiKeel('EE')" >Eesti Keel</button>
+<button (click)="valiKeel('EN')">Inglise Keel</button>
+<button (click)="valiKeel('RU')">Vene Keel</button>
+
+<br>
 <button routerLink="/">Avaleht</button>
 <button routerLink="/ostukorv">Ostukorv</button>
-
+<button routerLink="/lisa-toode">Lisa toode</button>
+<button routerLink="/poed">Poed</button>
+<router-outlet></router-outlet>
