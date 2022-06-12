@@ -9,6 +9,7 @@ import { LisaToodeComponent } from './lisa-toode/lisa-toode.component';
 import { PoedComponent } from './poed/poed.component';
 import { FormsModule } from '@angular/forms';
 import { KodulehtComponent } from './koduleht/koduleht.component';
+import { AutodComponent } from './autod/autod.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { KodulehtComponent } from './koduleht/koduleht.component';
     OstukorvComponent,
     LisaToodeComponent,
     PoedComponent,
-    KodulehtComponent
+    KodulehtComponent,
+    AutodComponent
   ],
   imports: [
     BrowserModule, //ngIf,ngfor

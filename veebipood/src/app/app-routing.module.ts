@@ -5,6 +5,7 @@ import { OstukorvComponent } from './ostukorv/ostukorv.component';
 import { LisaToodeComponent } from './lisa-toode/lisa-toode.component';
 import { PoedComponent } from './poed/poed.component';
 import { KodulehtComponent } from './koduleht/koduleht.component';
+import { AutodComponent } from './autod/autod.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:"ostukorv",component:OstukorvComponent},
   {path:"lisa-toode",component:LisaToodeComponent},
   {path:"poed",component:PoedComponent},
+  {path:"Autod",component:AutodComponent},
 ];
 
 @NgModule({
