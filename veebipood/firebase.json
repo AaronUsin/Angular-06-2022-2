@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "angular20221306",
+    "public": "dist/veebipood",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

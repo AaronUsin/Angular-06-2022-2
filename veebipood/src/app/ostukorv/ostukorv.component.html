@@ -1,1 +1,36 @@
-<p>ostukorv works!</p>
+<br><br>
+<!-- <div (click)="lisaOstukorvi('Coca cola')" >Coca cola</div>
+<div (click)="lisaOstukorvi('Coca cola')" >Coca cola</div>
+<div (click)="lisaOstukorvi('Coca cola')" >Coca cola</div>
+<div (click)="lisaOstukorvi('Fanta')" >Fanta</div>
+<div (click)="lisaOstukorvi('Fanta')" >Fanta</div> -->
+<div *ngIf="ostukorviTooted.length === 0" >Ostukorv on tühi</div>
+<button *ngIf="ostukorviTooted.length > 0" (click)="tyhjenda()">Tühjenda</button>
+<div *ngFor="let t of ostukorviTooted">
+    {{t}}
+<button (click)="lisaOstukorvi(t)" >+</button>
+<button (click)="eemaldaOstukorvist(t)" >x</button>
+</div>
+
+
+
+<!-- kõigepealt kirjutan ise mingid tooted ostukorvi
+siis näitan, et teeks seda hoopis ngFor tsükli abil
+siis tõstame ngFor tsükli sees oleva muutuja .ts faili
+lisa ja kustuta ostukorvist
+
+.ts failis teeme sellele muutujale lisamise (.push())
+.ts failis teeme sellele muutujale kustutamise ((.splice))
+
+teeme kolmanda nupu Tühjendus, aga mitte igaühele (1x)
+ehk ei tee seda ngFor sisse
+seome tühjenda nupu funktsiooniga
+
+.ts failis teeme sellele muutujale list/array(massiiv) andmise
+
+siis hakkame siduma storagega
+lähen tagasi kodulehele ja lisan uue toote brauseri storagesse(samamoodi nagu lisasin uut toodet)
+lähe ostukorvi ja võtan storagest kõik ostukorvi tooted nagu avalehel
+
+kustutamine ja lisamine ja tühjendamine --- need seon ka lõpuks storagega.
+-->

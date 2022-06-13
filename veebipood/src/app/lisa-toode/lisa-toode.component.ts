@@ -22,9 +22,14 @@ uusToode="";
    if (lsTooted !== null) {
       tooted = JSON.parse(lsTooted);
    }
+   // selle lõigu lõpuks on tooted muutuja sees KAS:
+   //[] --->kui ei ole midagi localStorages
+   //või
+   //["coca-cola","Fanta","Sprite"]--->võetakse localstorage-st
    tooted.push(this.uusToode);
    localStorage.setItem("tooted", JSON.stringify(tooted));
   }
+  //pannakse localstorage'sse
   //1.pean võtma localStoragest tooted ---> localstorage.getItem
   //2. Pean tegema uue tühja massivi ----> let muutuja on ( = ) tühi massiiv([ ])
   //3.Kui tooted on olemas, siis asendan selle tühja massiivi nende toodetega ( if )
