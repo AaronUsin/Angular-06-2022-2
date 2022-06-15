@@ -10,6 +10,7 @@ import { PoedComponent } from './poed/poed.component';
 import { FormsModule } from '@angular/forms';
 import { KodulehtComponent } from './koduleht/koduleht.component';
 import { AutodComponent } from './autod/autod.component';
+import { ValitudAutodComponent } from './valitud-autod/valitud-autod.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AutodComponent } from './autod/autod.component';
     LisaToodeComponent,
     PoedComponent,
     KodulehtComponent,
-    AutodComponent
+    AutodComponent,
+    ValitudAutodComponent
   ],
   imports: [
     BrowserModule, //ngIf,ngfor

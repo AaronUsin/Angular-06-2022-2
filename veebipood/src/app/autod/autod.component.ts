@@ -13,6 +13,19 @@ this.autod.push(auto);
   constructor() { }
 
   ngOnInit(): void {
+    let lsAutod=localStorage.getItem("autod");
+    if(lsAutod !== null) {
+      this.autod = JSON.parse(lsAutod);
+    }
   }
 
+  valiAuto(autod: string){
+    let lsValitudAutod = localStorage.getItem("valitud-autod");
+    let valitudAutod = [];
+    if (lsValitudAutod !== null) {
+      valitudAutod = JSON.parse(lsValitudAutod);
+  }
+  valitudAutod.push(autod);
+  localStorage.setItem("valitud-autod", JSON.stringify(valitudAutod));
+  }
 }

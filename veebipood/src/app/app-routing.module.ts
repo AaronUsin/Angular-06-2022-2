@@ -6,6 +6,7 @@ import { LisaToodeComponent } from './lisa-toode/lisa-toode.component';
 import { PoedComponent } from './poed/poed.component';
 import { KodulehtComponent } from './koduleht/koduleht.component';
 import { AutodComponent } from './autod/autod.component';
+import { ValitudAutodComponent } from './valitud-autod/valitud-autod.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:"lisa-toode",component:LisaToodeComponent},
   {path:"poed",component:PoedComponent},
   {path:"Autod",component:AutodComponent},
+  {path:"valitud-autod",component:ValitudAutodComponent},
 ];
 
 @NgModule({

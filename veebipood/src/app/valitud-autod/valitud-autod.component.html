@@ -1,0 +1,8 @@
+<br><br>
+<div *ngIf="valitudAutod.length === 0" >Pole valitud ühtki sõidukit</div>
+<button *ngIf="valitudAutod.length > 0" (click)="tyhjenda()">Tühjenda</button>
+<div *ngFor="let t of valitudAutod">
+    {{t}}
+    <button (click)="valiAuto(t)" >+</button>
+    <button (click)="eemaldaListist(t)" >x</button>
+    </div>

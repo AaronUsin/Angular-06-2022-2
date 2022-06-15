@@ -18,7 +18,7 @@ this.programmiKeel = uusKeel;
 }
 //Salvestamise võimalused:
 //1. andmebaas - väline, internetist
-//2. brauserisse saav salvestada - cookies, localstorage
+//2. brauserisse saab salvestada - cookies, localstorage
 //3.faili - Excel, txt
 
 // Vanakooli meetod:  valiKeelEN(){
