@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { KodulehtComponent } from './koduleht/koduleht.component';
 import { AutodComponent } from './autod/autod.component';
 import { ValitudAutodComponent } from './valitud-autod/valitud-autod.component';
+import { LisaKeskusComponent } from './lisa-keskus/lisa-keskus.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ValitudAutodComponent } from './valitud-autod/valitud-autod.component';
     PoedComponent,
     KodulehtComponent,
     AutodComponent,
-    ValitudAutodComponent
+    ValitudAutodComponent,
+    LisaKeskusComponent
   ],
   imports: [
     BrowserModule, //ngIf,ngfor

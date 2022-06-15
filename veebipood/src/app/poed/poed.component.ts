@@ -11,6 +11,10 @@ keskused = ['Kristiine','Helsinki','smt','asfasx','mingi','Tasku','Ülemiste']
   constructor() { }
 
   ngOnInit(): void {
+    let lsKeskused=localStorage.getItem("keskused");
+    if(lsKeskused !== null) {
+      this.keskused = JSON.parse(lsKeskused);
+    }
   }
 
   v6taYhendust(telefoniNumber: string) {
