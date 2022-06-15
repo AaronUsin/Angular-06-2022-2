@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "teine-harjutus",
+    "public": "dist/teine",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
