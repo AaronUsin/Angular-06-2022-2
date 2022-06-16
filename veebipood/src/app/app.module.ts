@@ -12,6 +12,7 @@ import { KodulehtComponent } from './koduleht/koduleht.component';
 import { AutodComponent } from './autod/autod.component';
 import { ValitudAutodComponent } from './valitud-autod/valitud-autod.component';
 import { LisaKeskusComponent } from './lisa-keskus/lisa-keskus.component';
+import { YksikToodeComponent } from './yksik-toode/yksik-toode.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LisaKeskusComponent } from './lisa-keskus/lisa-keskus.component';
     KodulehtComponent,
     AutodComponent,
     ValitudAutodComponent,
-    LisaKeskusComponent
+    LisaKeskusComponent,
+    YksikToodeComponent
   ],
   imports: [
     BrowserModule, //ngIf,ngfor

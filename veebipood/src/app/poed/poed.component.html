@@ -6,7 +6,11 @@
 <div (click)="v6taYhendust('52343242')">Tasku keskus</div>
 <div (click)="v6taYhendust('55434354')">Ülemiste keskus</div> -->
 
-<div *ngFor="let keskuseNimi of keskused"> {{keskuseNimi}} keskus</div>
+<div *ngFor="let k of keskused" (click)="v6taYhendust(k)" > {{k.nimi}} keskus</div>
 <br><br>
 
-<div *ngIf="v2ljakuvatavKontakt !== ''">Nende kontakt on: {{v2ljakuvatavKontakt}} </div>
+<div *ngIf="v2ljakuvatavKontakt !== ''">Nende kontakt on: {{v2ljakuvatavKontakt.tel}},{{v2ljakuvatavKontakt.aadress}} </div>
+
+<img src="assets/töö.jpeg" alt="pilt">
+<!-- alt, kasutatakse siis kui pilti ei saada kätte
+arendajad pilti ei näe, saavad lugeda -->

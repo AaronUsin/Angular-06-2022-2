@@ -8,6 +8,7 @@ import { KodulehtComponent } from './koduleht/koduleht.component';
 import { AutodComponent } from './autod/autod.component';
 import { ValitudAutodComponent } from './valitud-autod/valitud-autod.component';
 import { LisaKeskusComponent } from './lisa-keskus/lisa-keskus.component';
+import { YksikToodeComponent } from './yksik-toode/yksik-toode.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path:"Autod",component:AutodComponent},
   {path:"valitud-autod",component:ValitudAutodComponent},
   {path:"lisa-keskus",component:LisaKeskusComponent},
+  {path:"toode/:nimi",component:YksikToodeComponent},
 ];
 
 @NgModule({
