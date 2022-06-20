@@ -22,7 +22,8 @@ leitudToode: any; //{nimi:"Coca cola, hind:3121"}
    if (lsTooted !== null) {
       tooted = JSON.parse(lsTooted);
    }
-   this.leitudToode = tooted.find((element: any) => element.nimi.toLowerCase().replaceAll(" ","-") === tooteNimi);
+   this.leitudToode = tooted.find((element: any) => 
+   element.nimi.toLowerCase().replaceAll(" ","-") === tooteNimi);
   }
 //= väärtuse andmine
 //=== vaatab kas võrdub vasak paremapoolega

@@ -7,14 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PoedComponent implements OnInit {
 v2ljakuvatavKontakt: any;
-keskused = [
-  {nimi:'Kristiine', tel:'+37258643212', aadress:'Tammsaare tee'},
-{nimi:'Helsinki',tel:'+358765323121',aadress:'Helsinkinkatu'},
-{nimi:'Tasku',tel:'+37257463212',aadress:'Riia mnt'},
-{nimi:'Ülemiste',tel:'+37257463512',aadress:'Tartu mnt'}];
+keskused: any[] = []
+//keskused = [
+//  {nimi:'Kristiine', tel:'+37258643212', aadress:'Tammsaare tee'},
+//{nimi:'Helsinki',tel:'+358765323121',aadress:'Helsinkinkatu'},
+//{nimi:'Tasku',tel:'+37257463212',aadress:'Riia mnt'},
+//{nimi:'Ülemiste',tel:'+37257463512',aadress:'Tartu mnt'}];
   constructor() { }
 
   ngOnInit(): void {
+    let keskusedLS = localStorage.getItem("keskused");
+    if (keskusedLS !== null){
+       this.keskused = JSON.parse(keskusedLS);
+    }
+   
    // let lsKeskused=localStorage.getItem("keskused");
     //if(lsKeskused !== null) {
      // this.keskused = JSON.parse(lsKeskused);

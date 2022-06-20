@@ -9,7 +9,9 @@
 <div *ngFor="let k of keskused" (click)="v6taYhendust(k)" > {{k.nimi}} keskus</div>
 <br><br>
 
-<div *ngIf="v2ljakuvatavKontakt !== ''">Nende kontakt on: {{v2ljakuvatavKontakt.tel}},{{v2ljakuvatavKontakt.aadress}} </div>
+<div *ngIf="v2ljakuvatavKontakt !== undefined">
+    Nende kontakt on: {{v2ljakuvatavKontakt.tel}},{{v2ljakuvatavKontakt.aadress}}
+ </div>
 
 <img src="assets/töö.jpeg" alt="pilt">
 <!-- alt, kasutatakse siis kui pilti ei saada kätte

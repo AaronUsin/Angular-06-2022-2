@@ -13,6 +13,8 @@ import { AutodComponent } from './autod/autod.component';
 import { ValitudAutodComponent } from './valitud-autod/valitud-autod.component';
 import { LisaKeskusComponent } from './lisa-keskus/lisa-keskus.component';
 import { YksikToodeComponent } from './yksik-toode/yksik-toode.component';
+import { MuudaToodeComponent } from './muuda-toode/muuda-toode.component';
+import { HaldaTooteidComponent } from './halda-tooteid/halda-tooteid.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { YksikToodeComponent } from './yksik-toode/yksik-toode.component';
     AutodComponent,
     ValitudAutodComponent,
     LisaKeskusComponent,
-    YksikToodeComponent
+    YksikToodeComponent,
+    MuudaToodeComponent,
+    HaldaTooteidComponent
   ],
   imports: [
     BrowserModule, //ngIf,ngfor

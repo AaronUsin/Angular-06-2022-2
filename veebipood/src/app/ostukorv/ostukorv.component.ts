@@ -17,12 +17,12 @@ kogusumma = 0;
   }
   this.arvutaKogusumma();
   }
-lisaOstukorvi(toode:string){
+lisaOstukorvi(toode:any){
 this.ostukorviTooted.push(toode);
 localStorage.setItem("ostukorv",JSON.stringify(this.ostukorviTooted))
 this.arvutaKogusumma();
 }
-eemaldaOstukorvist(toode:string){
+eemaldaOstukorvist(toode:any){
   let index = this.ostukorviTooted.indexOf(toode);//järjekorra numbri leidmiseks
   this.ostukorviTooted.splice(index, 1);
   localStorage.setItem("ostukorv",JSON.stringify(this.ostukorviTooted));
