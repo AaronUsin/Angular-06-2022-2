@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Open+Sans&family=Source+Sans+Pro:wght@300&display=swap');
+
+*{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.main-text {
+    margin: 100px;
+    font-size: 1.1em;
+}
+
