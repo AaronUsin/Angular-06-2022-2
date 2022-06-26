@@ -1,1 +1,6 @@
-<p>dog works!</p>
+ <div *ngFor="let dog of dogs">
+   <div *ngIf="onVanemKuiKaheksa(dog)">
+   Koer nimega {{dog.name}} ({{dog.age}}) omanikuks on {{dog.owner}}
+   </div>
+    
+</div>
