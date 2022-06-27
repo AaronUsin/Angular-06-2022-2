@@ -1,6 +1,8 @@
 <br><br>
-<form (ngSubmit)="lisaKassid(form)" #form="">
+<form (ngSubmit)="lisaKassid(form)" #form="ngForm">
     <label>Kassi nimi</label> <br>
   <input autocomplete="off" ngModel name="nimi" type="text" required> <br>
-  <button >Sisesta kass</button>
+  <button [disabled]="form.invalid">Sisesta kass</button>
 </form>
+
+<!-- No directive found with exportAs 'ngForm' -->

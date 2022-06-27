@@ -8,6 +8,7 @@ import { DogComponent } from './dog/dog.component';
 import { MouseComponent } from './mouse/mouse.component';
 import { RabbitComponent } from './rabbit/rabbit.component';
 import { AddCatComponent } from './add-cat/add-cat.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AddCatComponent } from './add-cat/add-cat.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
