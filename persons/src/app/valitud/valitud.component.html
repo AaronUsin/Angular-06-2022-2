@@ -1,0 +1,8 @@
+<div *ngFor="let p of valitudInimesed">
+      id: {{p.id}} Name:{{p.name}} ({{p.age}}) username:{{p.username}} email:{{p.email}}
+   <button (click)="eemaldaValitutest(p)" >x</button>
+</div>
+<div *ngIf="valitudInimesed.length > 0">Vanus kokku: {{koguvanus}}</div>
+<div *ngIf="valitudInimesed.length > 0">Keskmine vanus: {{keskminevanus}}</div>
+<div *ngIf="valitudInimesed.length > 0">Inimeste arv: {{inimesteArv}}</div>
+<button *ngIf="valitudInimesed.length > 0" (click)="tyhjendaList()">Tühjenda list</button>
