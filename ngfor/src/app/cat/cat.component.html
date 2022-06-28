@@ -1,3 +1,9 @@
+<br><br>
+<div *ngIf="cats.length === 0" >Kasse ei ole lisatud!</div>
+<button *ngIf="cats.length > 0" (click)="tyhjendaList()">Tühjenda</button>
+
 <div *ngFor="let cat of cats">
- Kass nimega {{cat}} on meil olemas.
+      Kass nimega {{cat.nimi}} ({{cat.vanus}}) on meil olemas.  
+      <button (click)="eemaldaKass(cat)" >x</button>
 </div>
+<div *ngIf="cats.length > 0">Kasside koguvanus: {{koguvanus}}</div>

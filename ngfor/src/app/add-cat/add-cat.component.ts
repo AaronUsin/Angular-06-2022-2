@@ -10,7 +10,6 @@ export class AddCatComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
   }
   lisaKassid (form: any) {
     let cats = [];

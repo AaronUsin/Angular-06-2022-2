@@ -2,6 +2,8 @@
 <form (ngSubmit)="lisaKassid(form)" #form="ngForm">
     <label>Kassi nimi</label> <br>
   <input autocomplete="off" ngModel name="nimi" type="text" required> <br>
+  <label>Kassi vanus</label> <br>
+  <input  ngModel name="vanus" type ="number" required> <br>
   <button [disabled]="form.invalid">Sisesta kass</button>
 </form>
 
