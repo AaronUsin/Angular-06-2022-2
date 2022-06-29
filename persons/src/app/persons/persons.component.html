@@ -2,4 +2,6 @@
 <div *ngFor="let person of persons">
     Kasutaja {{person.name}} ({{person.age}})
     <button (click)="lisaValituks(person)">Lisa Valituks</button>
+
 </div>
+<div *ngIf="persons.length > 0">Inimeste arv: {{inimesteArv}}</div>

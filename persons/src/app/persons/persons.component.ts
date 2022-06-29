@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./persons.component.css']
 })
 export class PersonsComponent implements OnInit {
- 
-persons=[
+ inimesteArv = 0
+persons: any=[
   {"id":1, "name":"Leanne Graham","age": 23,"username":"Bret","email":"Sincere@april.biz"},
   {"id":2, "name":"Erwin Howell","age": 54,"username":"Antonette","email":"Shanna@melissa.tv"},
   {"id":3, "name":"Clementine Bauch","age": 12,"username":"Samantha","email":"Nathan@yesenia.net"},
@@ -18,10 +18,13 @@ persons=[
   {"id":8, "name":"Nicholas Runolfsdottir V","age": 41,"username":"Maxime_Nienow","email":"Sherwood@rosamond.me"},
   {"id":9, "name":"Glenna Reichert","age": 72,"username":"Delphine","email":"Chaim_McDermott@dana.io"},
   {"id":10, "name":"Clementina DuBuque","age": 11,"username":"Moriah.Stanton","email":"Rey.Padberg@karina.biz"},
+ 
 ]
+
   constructor() { }
 
   ngOnInit(): void {
+    this.arvutaInimestearv();
   }
 
   lisaValituks(person:any){
@@ -33,5 +36,9 @@ if (lsValitud !== null) {
   valitud.push(person);
   localStorage.setItem("valitud", JSON.stringify(valitud));
 }
-
+arvutaInimestearv(){
+ 
+  this.inimesteArv = this.persons.length;
+  console.log(this.persons.length)
+}
 }

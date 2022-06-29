@@ -11,7 +11,7 @@ export class ValitudComponent implements OnInit {
 valitudInimesed: any[] = []
 koguvanus=0
 keskminevanus=0
-inimesteArv=0
+inimesteArv = 0
 
   constructor() { }
 
@@ -21,42 +21,43 @@ inimesteArv=0
       this.valitudInimesed = JSON.parse(lsValitud);
   }
   this.arvutaKoguvanus();
-  this.arvutaKeskminevanus;
-  this.arvutaInimestearv;
+  this.arvutaKeskminevanus();
+  this.arvutaInimestearv();
   
 }
 lisaValituks(person:any){
   this.valitudInimesed.push(person);
   localStorage.setItem("valitud",JSON.stringify(this.valitudInimesed));
   this.arvutaKoguvanus();
-  this.arvutaKeskminevanus;
-  this.arvutaInimestearv(person);
+  this.arvutaKeskminevanus();
+  this.arvutaInimestearv();
 }
 eemaldaValitutest(person:any){
   let index = this.valitudInimesed.indexOf(person);
   this.valitudInimesed.splice(index, 1);
   localStorage.setItem("valitud",JSON.stringify(this.valitudInimesed));
   this.arvutaKoguvanus();
-  this.arvutaKeskminevanus;
-  this.arvutaInimestearv(person);
+  this.arvutaKeskminevanus();
+  this.arvutaInimestearv();
 }
 tyhjendaList() {
   this.valitudInimesed = [];
   localStorage.setItem("valitud",JSON.stringify(this.valitudInimesed));
   this.arvutaKoguvanus();
-  this.arvutaKeskminevanus;
-  this.arvutaInimestearv;
+  this.arvutaKeskminevanus();
+  this.arvutaInimestearv();
 }
 arvutaKoguvanus(){
   this.koguvanus=0;
   this.valitudInimesed.forEach(element => this.koguvanus = this.koguvanus + element.age);
   }
-arvutaKeskminevanus(person:any){
-  this.keskminevanus=0
-  this.valitudInimesed.forEach(element => this.keskminevanus = this.koguvanus/this.inimesteArv);
- 
+arvutaKeskminevanus(){
+  this.keskminevanus=0;
+  this.valitudInimesed.forEach(element => this.keskminevanus = this.koguvanus/this.valitudInimesed.length);
+ console.log(this.keskminevanus)
 }
-arvutaInimestearv(person:any){
-let inimesteArv = count(person.id)
+arvutaInimestearv(){
+  this.inimesteArv = 0;
+  this.inimesteArv = this.valitudInimesed.length;
 }
 }
