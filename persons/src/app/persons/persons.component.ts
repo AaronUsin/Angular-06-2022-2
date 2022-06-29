@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonsComponent implements OnInit {
  inimesteArv = 0
-persons: any=[
+persons: any[]=[
   {"id":1, "name":"Leanne Graham","age": 23,"username":"Bret","email":"Sincere@april.biz"},
   {"id":2, "name":"Erwin Howell","age": 54,"username":"Antonette","email":"Shanna@melissa.tv"},
   {"id":3, "name":"Clementine Bauch","age": 12,"username":"Samantha","email":"Nathan@yesenia.net"},

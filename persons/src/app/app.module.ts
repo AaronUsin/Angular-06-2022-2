@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ValitudComponent } from './valitud/valitud.component';
 import { PersonsComponent } from './persons/persons.component';
+import { InimesedComponent } from './inimesed/inimesed.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ValitudComponent,
-    PersonsComponent
+    PersonsComponent,
+    InimesedComponent
   ],
   imports: [
     BrowserModule,
