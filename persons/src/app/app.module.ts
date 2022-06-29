@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { ValitudComponent } from './valitud/valitud.component';
 import { PersonsComponent } from './persons/persons.component';
 import { InimesedComponent } from './inimesed/inimesed.component';
+import { UusInimeneComponent } from './uus-inimene/uus-inimene.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ValitudComponent,
     PersonsComponent,
-    InimesedComponent
+    InimesedComponent,
+    UusInimeneComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

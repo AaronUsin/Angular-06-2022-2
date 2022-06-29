@@ -28,6 +28,8 @@ inimesteArv = 0
 lisaValituks(person:any){
   this.valitudInimesed.push(person);
   localStorage.setItem("valitud",JSON.stringify(this.valitudInimesed));
+  this.valitudInimesed.push(person);
+  sessionStorage.setItem("valitud",JSON.stringify(this.valitudInimesed));
   this.arvutaKoguvanus();
   this.arvutaKeskminevanus();
   this.arvutaInimestearv();
@@ -36,6 +38,8 @@ eemaldaValitutest(person:any){
   let index = this.valitudInimesed.indexOf(person);
   this.valitudInimesed.splice(index, 1);
   localStorage.setItem("valitud",JSON.stringify(this.valitudInimesed));
+  this.valitudInimesed.splice(index, 0);
+  sessionStorage.setItem("valitud",JSON.stringify(this.valitudInimesed));
   this.arvutaKoguvanus();
   this.arvutaKeskminevanus();
   this.arvutaInimestearv();
@@ -43,6 +47,7 @@ eemaldaValitutest(person:any){
 tyhjendaList() {
   this.valitudInimesed = [];
   localStorage.setItem("valitud",JSON.stringify(this.valitudInimesed));
+  sessionStorage.setItem("valitud",JSON.stringify(this.valitudInimesed));
   this.arvutaKoguvanus();
   this.arvutaKeskminevanus();
   this.arvutaInimestearv();

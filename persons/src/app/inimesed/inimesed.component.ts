@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inimesed.component.css']
 })
 export class InimesedComponent implements OnInit {
-  persons= [
+  persons: any[]= [
     {"id":1, "name":"Leanne Graham","age": 23,"username":"Bret","email":"Sincere@april.biz"},
     {"id":2, "name":"Erwin Howell","age": 54,"username":"Antonette","email":"Shanna@melissa.tv"},
     {"id":3, "name":"Clementine Bauch","age": 12,"username":"Samantha","email":"Nathan@yesenia.net"},
@@ -22,9 +22,14 @@ export class InimesedComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    let lsPersons = sessionStorage.getItem("Inimesed");
+    if (lsPersons !== null){
+      this.persons = JSON.parse(lsPersons)};
   }
-lisaInimene(){
-
+lisaInimene(person:any){
+  this.persons.push(person);
+  sessionStorage.setItem("Inimesed",JSON.stringify(this.persons))
 console.log(this.persons)
 }
 }
+
