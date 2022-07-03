@@ -16,6 +16,8 @@ import { YksikToodeComponent } from './yksik-toode/yksik-toode.component';
 import { MuudaToodeComponent } from './muuda-toode/muuda-toode.component';
 import { HaldaTooteidComponent } from './halda-tooteid/halda-tooteid.component';
 import { HaldaPoodeComponent } from './halda-poode/halda-poode.component';
+import { PoodComponent } from './pood/pood.component';
+import { MuudaPoodeComponent } from './muuda-poode/muuda-poode.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { HaldaPoodeComponent } from './halda-poode/halda-poode.component';
     YksikToodeComponent,
     MuudaToodeComponent,
     HaldaTooteidComponent,
-    HaldaPoodeComponent
+    HaldaPoodeComponent,
+    PoodComponent,
+    MuudaPoodeComponent,
   ],
   imports: [
     BrowserModule, //*ngIf="true" ,*ngfor="let toode of tooted"

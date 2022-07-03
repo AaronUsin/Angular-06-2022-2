@@ -1,10 +1,11 @@
 <div *ngFor="let k of keskused" > 
   <div> Keskus: {{k.nimi}} </div>
-  <div> Telefon: {{k.tel}} </div>
+  <div> Telefon: {{k.telefon}} </div>
   <div> Aadress: {{k.aadress}} </div>
-  <button> Muuda -- kodus</button>
-  <button>Kustuta -- kodus</button>
+  <button routerLink="/muudaP/{{k.nimi.toLowerCase().replace(' ', '-')}}"> Muuda pood</button>
+  <button (click)="deleteShop(k)">Kustuta pood</button>
 </div>
+ 
 <!-- 1.muuda-toode fail 
 2. seos app-routingus muuda-pood/:ijasodjioijsad
 3.muuda buttoni sees routerLink="{{k.nimi}}"

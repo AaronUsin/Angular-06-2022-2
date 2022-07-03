@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-halda-poode',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HaldaPoodeComponent implements OnInit {
   keskused: any[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
@@ -15,4 +17,11 @@ export class HaldaPoodeComponent implements OnInit {
       this.keskused = JSON.parse(keskusedLS);
   }
  }
+deleteShop(k: any){
+  const j2rjekorraNumber = this.keskused.indexOf(k);
+  this.keskused.splice(j2rjekorraNumber,1);
+  localStorage.setItem("keskused", JSON.stringify(this.keskused));
 }
+ }
+
+

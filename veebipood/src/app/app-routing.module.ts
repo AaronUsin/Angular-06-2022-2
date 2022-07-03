@@ -12,6 +12,8 @@ import { YksikToodeComponent } from './yksik-toode/yksik-toode.component';
 import { MuudaToodeComponent } from './muuda-toode/muuda-toode.component';
 import { HaldaTooteidComponent } from './halda-tooteid/halda-tooteid.component';
 import { HaldaPoodeComponent } from './halda-poode/halda-poode.component';
+import { PoodComponent } from './pood/pood.component';
+import { MuudaPoodeComponent } from './muuda-poode/muuda-poode.component';
 
 
 const routes: Routes = [
@@ -29,6 +31,8 @@ const routes: Routes = [
   {path:"muuda/:nimi",component:MuudaToodeComponent},
   {path:"halda-tooteid",component:HaldaTooteidComponent},
   {path:"halda-poode",component:HaldaPoodeComponent},
+  {path:"pood/:nimi",component:PoodComponent},
+  {path:"muudaP/:nimi",component:MuudaPoodeComponent},
 ];
 
 @NgModule({

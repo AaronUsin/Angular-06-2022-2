@@ -1,0 +1,13 @@
+<div> {{antudKeskus.nimi}} </div>
+<div> {{antudKeskus.telefon}} </div>
+<div> {{antudKeskus.aadress}} </div>
+
+<form (ngSubmit)="muudaPood()" [formGroup]="worm">
+    <label>Poe nimi</label> <br>
+    <input  formControlName="nimi" type ="text" required> <br>
+    <label>Telefon</label> <br>
+    <input  formControlName="telefon" type ="number" required> <br>
+    <label>Aadress</label> <br>
+    <input  formControlName="aadress" type ="text" required> <br>
+    <button [disabled]="worm.invalid" >Sisesta</button> <br>
+</form>
