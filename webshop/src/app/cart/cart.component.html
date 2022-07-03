@@ -1,13 +1,16 @@
-<button>Tühjenda</button>
-<div>Kui on tühi, siis näita pilti(ngIf)</div>
+<button *ngIf="cart.length > 0" (click)="deleteAll()">Tühjenda</button>
+<div *ngIf="cart.length === 0"><img src="assets/preview.png" alt="Cart empty"> <br>
+    Cart empty!
+</div>
 
-<div> {{cart.length}}tk </div>
+<div *ngIf="cart.length > 0"> {{cart.length}}tk </div>
 
 
 <div *ngFor="let product of cart">
     <img src="{{ product.imgSrc }}" alt="Product image">
     <div>{{product.name}}</div>
     <div> {{product.price}}€ </div>
+
 </div>
 
-<div>Kogusumma</div>
+<div *ngIf="cart.length > 0">{{allPrice}}€</div>
