@@ -24,7 +24,7 @@ this.cart.forEach(element => this.allPrice = this.allPrice + element.price);
 
   deleteAll() {
     this.cart = [];
-    localStorage.setItem("cart",JSON.stringify(this.cart));
+    sessionStorage.setItem("cart",JSON.stringify(this.cart));
     this.calculatePrice();
   }
 }
