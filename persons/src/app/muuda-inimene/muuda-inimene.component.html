@@ -1,0 +1,10 @@
+<div> {{lisatudInimesed.nimi}} </div>
+<div> {{lisatudInimesed.vanus}} </div>
+
+<form (ngSubmit)="muuda()" [formGroup]="vorm">
+    <label>Eesnimi</label> <br>
+    <input  formControlName="nimi" type ="text" required> <br>
+    <label>Vanus</label> <br>
+    <input  formControlName="age" type ="number" required> <br>
+    <button [disabled]="vorm.invalid" >Sisesta</button> <br>
+</form>

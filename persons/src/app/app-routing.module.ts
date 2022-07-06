@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InimesedComponent } from './inimesed/inimesed.component';
+import { MuudaInimeneComponent } from './muuda-inimene/muuda-inimene.component';
 import { PersonsComponent } from './persons/persons.component';
 import { UusInimeneComponent } from './uus-inimene/uus-inimene.component';
 import { ValitudComponent } from './valitud/valitud.component';
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path:"persons", component: PersonsComponent},
   {path:"inimesed", component: InimesedComponent},
   {path:"uus-inimene", component: UusInimeneComponent},
+  {path:"muuda-inimene/:nimi", component: MuudaInimeneComponent},
 ];
 
 @NgModule({

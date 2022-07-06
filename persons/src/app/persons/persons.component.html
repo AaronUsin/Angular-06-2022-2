@@ -1,6 +1,6 @@
 <br><br>
 <div *ngFor="let person of persons">
-    Kasutaja {{person.name}} ({{person.age}})
-    <button (click)="lisaValituks(person)">Lisa Valituks</button>
+    {{'persons.Kasutaja' |translate}} {{person.name}} ({{person.age}})
+    <button (click)="lisaValituks(person)"> {{'persons.lisaValituks-button' | translate}} </button>
 
 </div>

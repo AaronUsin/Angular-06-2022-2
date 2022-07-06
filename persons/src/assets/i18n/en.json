@@ -1,0 +1,21 @@
+{"inimesed": {
+    "lisaInimene-button":"Add person"
+},
+"valitud":{
+"eemaldaValitutest-button":"Remove from selected",
+"tyhjendaList-button":"Clear all",
+"Vanus kokku":"Age together",
+"Keskmine vanus":"Average age",
+"Inimeste arv":"Number of people"
+},
+"persons":{
+    "lisaValituks-button":"Add to selected",
+    "Kasutaja":"User"
+},
+"uus-inimene":{
+    "lisaInimene-button":"Insert person",
+    "name":"Person's name",
+    "age":"Person's age",
+    "username":"Username"
+}
+}

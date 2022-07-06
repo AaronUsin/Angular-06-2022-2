@@ -1,0 +1,22 @@
+{"inimesed": {
+    "lisaInimene-button":"Lisa inimene"
+},
+"valitud":{
+"eemaldaValitutest-button":"Eemalda valitutest",
+"tyhjendaList-button":"Tühjenda",
+"Vanus kokku":"Vanus kokku",
+"Keskmine vanus":"Keskmine vanus",
+"Inimeste arv":"Inimeste arv"
+
+},
+"persons":{
+    "lisaValituks-button":"Lisa valituks",
+    "Kasutaja":"Kasutaja"
+},
+"uus-inimene":{
+    "lisaInimene-button":"Sisesta inimene",
+    "name":"Inimese nimi",
+    "age":"Inimese vanus",
+    "username":"Kasutajanimi"
+}
+}
