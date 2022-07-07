@@ -22,13 +22,13 @@ export class InimesedComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    let lsPersons = sessionStorage.getItem("Inimesed");
+    let lsPersons = sessionStorage.getItem("inimesed");
     if (lsPersons !== null){
       this.persons = JSON.parse(lsPersons)};
   }
 lisaInimene(person:any){
   this.persons.push(person);
-  sessionStorage.setItem("Inimesed",JSON.stringify(this.persons))
+  sessionStorage.setItem("inimesed",JSON.stringify(this.persons))
 console.log(this.persons)
 }
 }

@@ -14,28 +14,28 @@ private j2rjekorraNumber = -1;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    let inimeseNimi = window.location.href.split("person/:name")[1];
-    let inimesed = [];
-    let lsInimesed= sessionStorage.getItem("persons");
-    if (lsInimesed !== null) {
-      inimesed = JSON.parse(lsInimesed);
+    let inimeseNimi = window.location.href.split("inimesed")[1];
+    let persons = [];
+    let lsPersons= sessionStorage.getItem("persons");
+    if (lsPersons !== null) {
+      persons = JSON.parse(lsPersons);
     }
-    this.lisatudInimesed = inimesed.find((element: any) => 
+    this.lisatudInimesed = persons.find((element: any) => 
     element.nimi.toLowerCase().replaceAll(" ","-") === inimeseNimi);
-    this.j2rjekorraNumber = inimesed.indexOf(this.lisatudInimesed);
+    this.j2rjekorraNumber = persons.indexOf(this.lisatudInimesed);
     this.vorm = new FormGroup({
-    nimi: new FormControl(this.lisatudInimesed.nimi),
-    vanus: new FormControl(this.lisatudInimesed.vanus),
+      nimi: new FormControl(this.lisatudInimesed.nimi),
+      vanus: new FormControl(this.lisatudInimesed.vanus),
      });
   }
 
   muuda(){
     console.log("töötab");
     //1.võtan localStoragest
-    let inimesed = [];
-    let lsInimesed= sessionStorage.getItem("persons");
-    if (lsInimesed !== null) {
-      inimesed = JSON.parse(lsInimesed);
+    let persons = [];
+    let lsPersons= sessionStorage.getItem("persons");
+    if (lsPersons !== null) {
+      persons = JSON.parse(lsPersons);
     }
   //2.teen midagi ---
   // lisamiseks tooted.push(uus_väärtus),
@@ -43,10 +43,10 @@ private j2rjekorraNumber = -1;
   //muutmiseks tooted[index]=uus_väärtus
   
   
-  inimesed[this.j2rjekorraNumber] = this.vorm.value;
+  persons[this.j2rjekorraNumber] = this.vorm.value;
   
   //3.panen tagasi localStoragesse
-  sessionStorage.setItem("persons", JSON.stringify(inimesed));
+  sessionStorage.setItem("persons", JSON.stringify(persons));
   //4.suunan
   this.router.navigateByUrl("/inimesed");
   }
