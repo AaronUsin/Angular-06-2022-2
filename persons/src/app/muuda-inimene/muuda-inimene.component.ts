@@ -14,18 +14,21 @@ private j2rjekorraNumber = -1;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    let inimeseNimi = window.location.href.split("inimesed")[1];
+    let inimeseNimi = window.location.href.split("muuda-inimene/")[1];
+    console.log(inimeseNimi)
     let persons = [];
-    let lsPersons= sessionStorage.getItem("persons");
+    let lsPersons= sessionStorage.getItem("inimesed");
     if (lsPersons !== null) {
       persons = JSON.parse(lsPersons);
     }
+    console.log(persons)
     this.lisatudInimesed = persons.find((element: any) => 
-    element.nimi.toLowerCase().replaceAll(" ","-") === inimeseNimi);
+    element.name.toLowerCase().replaceAll(" ","-") === inimeseNimi);
     this.j2rjekorraNumber = persons.indexOf(this.lisatudInimesed);
     this.vorm = new FormGroup({
-      nimi: new FormControl(this.lisatudInimesed.nimi),
-      vanus: new FormControl(this.lisatudInimesed.vanus),
+      name: new FormControl(this.lisatudInimesed.name),
+      
+      age: new FormControl(this.lisatudInimesed.age),
      });
   }
 
@@ -33,7 +36,7 @@ private j2rjekorraNumber = -1;
     console.log("töötab");
     //1.võtan localStoragest
     let persons = [];
-    let lsPersons= sessionStorage.getItem("persons");
+    let lsPersons= sessionStorage.getItem("inimesed");
     if (lsPersons !== null) {
       persons = JSON.parse(lsPersons);
     }
@@ -46,7 +49,7 @@ private j2rjekorraNumber = -1;
   persons[this.j2rjekorraNumber] = this.vorm.value;
   
   //3.panen tagasi localStoragesse
-  sessionStorage.setItem("persons", JSON.stringify(persons));
+  sessionStorage.setItem("inimesed", JSON.stringify(persons));
   //4.suunan
   this.router.navigateByUrl("/inimesed");
   }
