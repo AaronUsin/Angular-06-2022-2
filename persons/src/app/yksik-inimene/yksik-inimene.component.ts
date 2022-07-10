@@ -12,7 +12,7 @@ leitudInimene: any;
   ngOnInit(): void {
     let inimeseNimi = window.location.href.split("inimene/")[1];
       console.log(inimeseNimi)
-    let lsPersons= localStorage.getItem("inimesed");
+    let lsPersons= localStorage.getItem("persons");
     let persons = [];
     if (lsPersons !== null) {
        persons = JSON.parse(lsPersons);
