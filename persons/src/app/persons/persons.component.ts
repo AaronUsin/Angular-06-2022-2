@@ -13,7 +13,7 @@ persons: any[]=[]
 
   ngOnInit(): void {
    
-    let lsPersons = sessionStorage.getItem("Inimesed");
+    let lsPersons = localStorage.getItem("inimesed");
     if (lsPersons !== null){
       this.persons = JSON.parse(lsPersons);
     }

@@ -17,7 +17,7 @@ private j2rjekorraNumber = -1;
     let inimeseNimi = window.location.href.split("muuda-inimene/")[1];
     console.log(inimeseNimi)
     let persons = [];
-    let lsPersons= sessionStorage.getItem("inimesed");
+    let lsPersons= localStorage.getItem("inimesed");
     if (lsPersons !== null) {
       persons = JSON.parse(lsPersons);
     }
@@ -36,7 +36,7 @@ private j2rjekorraNumber = -1;
     console.log("töötab");
     //1.võtan localStoragest
     let persons = [];
-    let lsPersons= sessionStorage.getItem("inimesed");
+    let lsPersons= localStorage.getItem("inimesed");
     if (lsPersons !== null) {
       persons = JSON.parse(lsPersons);
     }
@@ -49,7 +49,7 @@ private j2rjekorraNumber = -1;
   persons[this.j2rjekorraNumber] = this.vorm.value;
   
   //3.panen tagasi localStoragesse
-  sessionStorage.setItem("inimesed", JSON.stringify(persons));
+  localStorage.setItem("inimesed", JSON.stringify(persons));
   //4.suunan
   this.router.navigateByUrl("/inimesed");
   }

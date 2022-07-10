@@ -14,6 +14,7 @@ import { InimesedComponent } from './inimesed/inimesed.component';
 import { UusInimeneComponent } from './uus-inimene/uus-inimene.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MuudaInimeneComponent } from './muuda-inimene/muuda-inimene.component';
+import { YksikInimeneComponent } from './yksik-inimene/yksik-inimene.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MuudaInimeneComponent } from './muuda-inimene/muuda-inimene.component';
     PersonsComponent,
     InimesedComponent,
     UusInimeneComponent,
-    MuudaInimeneComponent
+    MuudaInimeneComponent,
+    YksikInimeneComponent
   ],
   imports: [
     BrowserModule,

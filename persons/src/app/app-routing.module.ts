@@ -5,6 +5,7 @@ import { MuudaInimeneComponent } from './muuda-inimene/muuda-inimene.component';
 import { PersonsComponent } from './persons/persons.component';
 import { UusInimeneComponent } from './uus-inimene/uus-inimene.component';
 import { ValitudComponent } from './valitud/valitud.component';
+import { YksikInimeneComponent } from './yksik-inimene/yksik-inimene.component';
 
 const routes: Routes = [
   {path:"", redirectTo: "persons", pathMatch:"full"},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:"inimesed", component: InimesedComponent},
   {path:"uus-inimene", component: UusInimeneComponent},
   {path:"muuda-inimene/:nimi", component: MuudaInimeneComponent},
+  {path:"yksik-inimene/:nimi", component: YksikInimeneComponent},
 ];
 
 @NgModule({

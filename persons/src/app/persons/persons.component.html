@@ -2,5 +2,5 @@
 <div *ngFor="let person of persons">
     {{'persons.Kasutaja' |translate}} {{person.name}} ({{person.age}})
     <button (click)="lisaValituks(person)"> {{'persons.lisaValituks-button' | translate}} </button>
-
+ <button routerLink="/yksik-inimene/{{person.name.toLowerCase().replaceAll(' ','-')}}">Vaata detaile</button>
 </div>

@@ -12,6 +12,14 @@ export class UusInimeneComponent implements OnInit {
   ngOnInit(): void {
   }
 lisaInimene(vorm:any){
-console.log(vorm.email)
+let persons = [];
+let personsLS = localStorage.getItem("inimesed");
+if (personsLS !== null){
+  persons = JSON.parse(personsLS);
+  
+}
+persons.push(vorm.value);
+localStorage.setItem("inimesed", JSON.stringify(persons));
+//console.log(persons)
 }
 }
