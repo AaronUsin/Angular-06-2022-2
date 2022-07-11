@@ -12,7 +12,7 @@ persons: any[]=[]
   constructor() { }
 
   ngOnInit(): void {
-   
+  
     let lsPersons = localStorage.getItem("inimesed");
     if (lsPersons !== null){
       this.persons = JSON.parse(lsPersons);

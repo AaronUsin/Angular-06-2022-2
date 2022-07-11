@@ -6,21 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./yksik-inimene.component.css']
 })
 export class YksikInimeneComponent implements OnInit {
-leitudInimene: any;
+
+  lisatudInimesed: any;
   constructor() { }
 
   ngOnInit(): void {
     let inimeseNimi = window.location.href.split("inimene/")[1];
-      console.log(inimeseNimi)
-    let lsPersons= localStorage.getItem("persons");
-    let persons = [];
-    if (lsPersons !== null) {
-       persons = JSON.parse(lsPersons);
-       console.log(inimeseNimi)
-    }
-    this.leitudInimene = persons.find((element: any) => {
-    element.nimi.toLowerCase().replaceAll(" ","-") === inimeseNimi});
     console.log(inimeseNimi)
+    let persons = [];
+    let lsPersons= localStorage.getItem("inimesed");
+    if (lsPersons !== null) {
+      persons = JSON.parse(lsPersons);
+    }
+    console.log(persons)
+    this.lisatudInimesed = persons.find((element: any) => 
+    element.name.toLowerCase().replaceAll(" ","-") === inimeseNimi);
   }
 
 }
