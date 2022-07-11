@@ -49,9 +49,9 @@ private productURLDb = "https://webshop-project-f0a42-default-rtdb.europe-west1.
 
 
 //Muuda toode SingleProduct järgi, [formGroup]
+//Toodete haldamisel otsing [ me ] 240
 //Lisa toode eesti keelse järgi, ngForm
 //ID kontroll lisamise ja muutmisel kontrollitakse, kas kellelgi on sama ID
-//Toodete haldamisel otsing [ me ] 240
 //Avalehele kategooriad - vajutuad kategooria peale, näitab ainult selle kategooria tooteid
 //Kategooriate valimine Dropdown menüüst, kui lisan või muudan
 //Kategooriad ka andmebaasi - võimaldame kategooriaid lisada, vaadata, kustutada

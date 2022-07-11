@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
@@ -6,13 +8,50 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
+  private products: any[] = [];
+  private productDbUrl = "https://webshop-project-f0a42-default-rtdb.europe-west1.firebasedatabase.app/products.json"
+ buttonDisabled = true;
+message = "";
 
-  constructor() { }
+  constructor(private http: HttpClient,
+    private router: Router) { }
 
   ngOnInit(): void {
+    this.http.get<any[]>(this.productDbUrl).subscribe(productsFromDb => {
+      this.products = productsFromDb;
+    })
+  }
+  checkIdUniqueness(id: number){
+   // console.log(id);
+   //otsime järjekorranumbri sellele ID-le toodete hulgast
+   //Kui on, siis on 0,1,2,3,4,5,99999...999 Kui ei ole -1
+   if (id > 10000000 && id < 99999999) {
+    const index = this.products.findIndex(element => element.id === id);
+   console.log(index);
+   if (index >= 0) {// index !== -1, index === -1
+    console.log("mitteunikaalne");
+    this.buttonDisabled = true;
+    this.message = "Sisestatud ID ei ole unikaalne";
+   } else {
+      console.log("unikaalne");
+      this.buttonDisabled = false;
+      this.message = "";
+   }
+   } else {
+    this.buttonDisabled = true;
+   }
   }
 
   onSubmit(form: any) {
     console.log(form.value);
-  }
+
+    //asendan products muutujast
+    // this.products[index] = this.editProductForm.value; 
+    this.products.push(form.value);
+    //asendan ära kõik tooted andmebaasis PUT abil
+    this.http.put(this.productDbUrl, this.products).subscribe(() => {
+    //suunamine /admin/halda-tooteid (HTML-is routerLink="/admin/halda-tooteid")
+    this.router.navigateByUrl("/admin/halda-tooteid");
+  });
+}
 }
