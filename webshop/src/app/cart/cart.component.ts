@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CartProduct } from '../models/cart_product.model';
+
 
 @Component({
   selector: 'app-cart',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-cart: any[] = [];
+cart: CartProduct[] = [];
 allPrice=0
   constructor() { }
 
@@ -17,9 +19,32 @@ allPrice=0
     }
     this.calculatePrice();
   }
+
+  decreaseQuantity(cartProduct: CartProduct) {
+    //cartProduct.quantity = cartProduct.quantity - 1;
+    cartProduct.quantity--;
+    sessionStorage.setItem("cart", JSON.stringify(this.cart));
+    if (cartProduct.quantity <= 0){
+      this.removeProduct(cartProduct);
+      }
+      this.calculatePrice();
+  }
+
+  increaseQuantity(cartProduct: CartProduct) {
+    cartProduct.quantity++;
+    sessionStorage.setItem("cart", JSON.stringify(this.cart));
+    this.calculatePrice();
+  }
+
+ removeProduct(cartProduct: CartProduct) {
+    const index = this.cart.indexOf(cartProduct);
+    this.cart.splice(index,1);
+  sessionStorage.setItem("cart", JSON.stringify(this.cart));
+  this.calculatePrice();
+ }
   calculatePrice(){
 this.allPrice = 0;
-this.cart.forEach(element => this.allPrice = this.allPrice + element.price);
+this.cart.forEach(element => this.allPrice = this.allPrice + element.product.price * element.quantity);
   }
 
   deleteAll() {

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-edit-product',
@@ -10,10 +11,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditProductComponent implements OnInit {
   //nagu üksikul tootel
-  private products: any[] = [];
-  product: any;
+  private products: Product[] = [];
+  product!: Product;
   private productDbUrl = "https://webshop-project-f0a42-default-rtdb.europe-west1.firebasedatabase.app/products.json"
-  editProductForm: any; //loodud TS poolel
+  editProductForm!: FormGroup; //loodud TS poolel
   infoOpen = false;
 
     constructor(private route: ActivatedRoute, 
@@ -22,18 +23,21 @@ export class EditProductComponent implements OnInit {
   
     ngOnInit(): void {
     const productId = this.route.snapshot.paramMap.get("id");
-    this.http.get<any[]>(this.productDbUrl).subscribe(productsFromDb => {
+    this.http.get<Product[]>(this.productDbUrl).subscribe(productsFromDb => {
       this.products = productsFromDb
-       this.product = this.products.find(element => Number(element.id) === Number(productId));
-       this.editProductForm = new FormGroup({
-        id: new FormControl(this.product.id),
-        name: new FormControl(this.product.name),
-        category: new FormControl(this.product.category),
-        imgSrc: new FormControl(this.product.imgSrc),
-        description: new FormControl(this.product.description),
-        price: new FormControl(this.product.price),
-        isActive: new FormControl(this.product.isActive)
-       })
+      const productFound = this.products.find(element => Number(element.id) === Number(productId));
+      if (productFound !== undefined) {
+        this.product = productFound;
+        this.editProductForm = new FormGroup({
+          id: new FormControl(this.product.id),
+          name: new FormControl(this.product.name),
+          category: new FormControl(this.product.category),
+          imgSrc: new FormControl(this.product.imgSrc),
+          description: new FormControl(this.product.description),
+          price: new FormControl(this.product.price),
+          isActive: new FormControl(this.product.isActive)
+         })
+      }
     });
    }
    openInfo(){

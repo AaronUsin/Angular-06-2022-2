@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ToastService } from 'angular-toastify';
+import { CartProduct } from '../models/cart_product.model';
+import { Product } from '../models/product.model';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +10,13 @@ import { ToastService } from 'angular-toastify';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-products: any[]=[];
+  // 1. võtta kõikide toodete küljest kategooria [{},{},{}].map() -- ["","",""]
+  // 2. võtta korduvad kategooriad ära["",""]
+  // 3. kuvame HTMLs ngFor abil
+selectedCategory = 'all'
+categories: string[]=[];
+products: Product[]=[];
+private originalProducts: Product[]=[];
 private productURLDb = "https://webshop-project-f0a42-default-rtdb.europe-west1.firebasedatabase.app/products.json"
 
 //{id: 1, imgSrc: 'ikm', name: 'hgvfvf', price: 5, description: 'kgvk', …} - see läheks siia sulu sisse lõppu.
@@ -16,17 +24,44 @@ private productURLDb = "https://webshop-project-f0a42-default-rtdb.europe-west1.
     private http: HttpClient ) { }
 
   ngOnInit(): void {
-    this.http.get<any[]>(this.productURLDb).subscribe(productsFromDb => this.products = productsFromDb);
+    this.http.get<Product[]>(this.productURLDb).subscribe(productsFromDb => {
+      this.products = productsFromDb;
+      this.originalProducts = productsFromDb;
+      this. categories = this.products.map(element => element.category);
+      this.categories = [... new Set(this.categories)];
+      //this.categories = [... new Set(this.products.map(element=> element.category))]
+    });
+  }
+  selectCategory(category: string) {
+    if (category === 'all') {
+      this.products = this.originalProducts;
+      this.selectedCategory = 'all';
+    } else {
+      this.products = this.originalProducts.filter(element => element.category === category);
+      this.selectedCategory = category;
+    }
   }
 
-  addToCart(product: any) {
+  addToCart(productClicked: Product) {
     //console.log(product);
-    let cart = [];
+    let cart: CartProduct[] = [];
     const cartSS = sessionStorage.getItem("cart");
     if (cartSS !== null) {
      cart = JSON.parse(cartSS); //JSON.parse - võetakse asju ära;
     }
-    cart.push(product); //push lisab lõppu toote juurde,
+    // 1. kontrollin kas toode on ostukorvis olemas (find;findIndex) -- find undefined: {id:"1", name:"s"}/findIndex -1 : 23
+    // 2. kui on ostukorvis olemas, suurendan kogust
+    // 3. kui ei ole ostukorvis olemas, pushin
+    // 4. .push({id:"1", name:"s"})   .push({product:{id:"1",name:"s"}, quantity: 1})
+    const index = cart.findIndex(element => element.product.id === productClicked.id);
+    if (index >= 0) {
+      // suurendan kogust
+      cart[index].quantity = cart[index].quantity + 1;
+    } else {
+      // lisan juurde
+      cart.push({product: productClicked, quantity: 1})
+    };
+   // cart.push(productClicked); //push lisab lõppu toote juurde,
     sessionStorage.setItem("cart", JSON.stringify(cart));
     this._toastService.info('Edukalt ostukorvi lisatud');
   }
