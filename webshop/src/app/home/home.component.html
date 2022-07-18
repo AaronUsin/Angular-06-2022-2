@@ -25,7 +25,7 @@
 
 <div *ngFor="let product of products">
     <div routerLink="toode/{{product.id}}">
-        <img src="{{ product.imgSrc }}" alt="Product image">
+        <img class="productImg" src="{{ product.imgSrc }}" alt="Product image">
         <div>{{product.name}}</div>
         <div> {{product.price | productPrice}} </div>
     </div>
