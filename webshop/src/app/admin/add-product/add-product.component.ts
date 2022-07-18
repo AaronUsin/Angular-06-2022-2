@@ -12,15 +12,24 @@ import { Product } from 'src/app/models/product.model';
 export class AddProductComponent implements OnInit {
   private products: Product[] = [];
   private productDbUrl = "https://webshop-project-f0a42-default-rtdb.europe-west1.firebasedatabase.app/products.json"
- buttonDisabled = true;
-message = "";
+  buttonDisabled = true;
+  message = "";
+  categories: {id: number, name: string}[] = [];
+  private categoryDbUrl = "https://webshop-project-f0a42-default-rtdb.europe-west1.firebasedatabase.app/categories.json"
 
   constructor(private http: HttpClient,
     private router: Router) { }
 
   ngOnInit(): void {
     this.http.get<Product[]>(this.productDbUrl).subscribe(productsFromDb => {
+      if(productsFromDb) {
       this.products = productsFromDb;
+      }
+    })
+    this.http.get<{id: number, name: string}[]>(this.categoryDbUrl).subscribe(categoriesFromDb => {
+      if (categoriesFromDb) {
+      this.categories = categoriesFromDb;
+      }
     })
   }
   checkIdUniqueness(id: number){

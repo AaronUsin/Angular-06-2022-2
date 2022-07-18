@@ -13,6 +13,12 @@ export class HomeComponent implements OnInit {
   // 1. võtta kõikide toodete küljest kategooria [{},{},{}].map() -- ["","",""]
   // 2. võtta korduvad kategooriad ära["",""]
   // 3. kuvame HTMLs ngFor abil
+
+  kuupaev = new Date();
+  protsent = 0.5;
+  number = 123123;
+  tekst = "elas metsas mutionu";
+  
 selectedCategory = 'all'
 categories: string[]=[];
 products: Product[]=[];
@@ -88,12 +94,13 @@ private productURLDb = "https://webshop-project-f0a42-default-rtdb.europe-west1.
 //Lisa toode eesti keelse järgi, ngForm
 //ID kontroll lisamise ja muutmisel kontrollitakse, kas kellelgi on sama ID
 //Avalehele kategooriad - vajutuad kategooria peale, näitab ainult selle kategooria tooteid
+//Ostukorvi kujundus
+//Ostukorv - kogustega
 //Kategooriate valimine Dropdown menüüst, kui lisan või muudan
+
 //Kategooriad ka andmebaasi - võimaldame kategooriaid lisada, vaadata, kustutada
 //Kaardirakenduse - võimaldaks vaadata meie poode Eesti kaardil (nagu G Maps - Leaflet)
-//Ostukorv - kogustega
 //Omniva pakiautomaadid kasutusele
-//Ostukorvi kujundus
 //E-maili saatmine - tagasiside / tellimus on tehtud
 //Number Navbari
 

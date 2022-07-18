@@ -1,0 +1,50 @@
+.cart-product {
+    display: flex; /*elemendid vasakult paremale */
+    justify-content: space-evenly;  /*vaba ruumi jaotus */
+    border: 1px dotted gray;
+    padding: 10px 0px;
+    margin: 0 5%;  /*vh - view height, margin: 0 10vw */
+}
+
+.product-img {
+    width: 150px;
+
+}
+
+.product-name {
+    width: 300px;
+}
+
+.product-price {
+    width: 70px;
+}
+
+.product-button {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.product-button:hover{
+    opacity: 0.7;
+    transition: .5s;
+}
+
+.quantity-controls{
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+}
+
+/* .product-quantity {
+    width: 40px;
+} */
+
+.product-total {
+    width: 70px;
+}
+
+.cart-sum {
+    width: 700px;
+}
