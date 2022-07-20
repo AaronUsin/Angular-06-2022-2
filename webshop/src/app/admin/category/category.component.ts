@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
+  
   categories: {id: number, name: string}[] = [];
   private categoryDbUrl = "https://webshop-project-f0a42-default-rtdb.europe-west1.firebasedatabase.app/categories.json"
 
@@ -27,5 +28,11 @@ export class CategoryComponent implements OnInit {
       this.http.put(this.categoryDbUrl, this.categories).subscribe();
   }
 
+  deleteCategory(category: any) {
+    const index = this.categories.indexOf(category);
+    this.categories.splice(index,1);
+    sessionStorage.setItem("kategooria", JSON.stringify(this.categories));
+  
+  }
   //kustutamine -- kodus!!
 }
