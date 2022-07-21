@@ -9,6 +9,7 @@
     },
      "navbar": {
         "admin-button":"To admin view",
-        "cart-button":"To cart"
+        "cart-button":"To cart",
+        "shops-button":"Shops"
     }
 }

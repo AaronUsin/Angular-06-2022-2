@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-category',
@@ -11,12 +12,12 @@ import { Router } from '@angular/router';
 export class CategoryComponent implements OnInit {
   
   categories: {id: number, name: string}[] = [];
-  private categoryDbUrl = "https://webshop-project-f0a42-default-rtdb.europe-west1.firebasedatabase.app/categories.json"
+  
 
-  constructor(private http: HttpClient) { }
+  constructor(private categoryService: CategoryService) { }
 
     ngOnInit(): void {
-      this.http.get<{id: number, name: string}[]>(this.categoryDbUrl).subscribe(categoriesFromDb => {
+      this.categoryService.getCategoriesFromDb().subscribe(categoriesFromDb => {
         if (categoriesFromDb) {
         this.categories = categoriesFromDb;
         }
@@ -25,14 +26,18 @@ export class CategoryComponent implements OnInit {
 
     onSubmit(form: NgForm) {
         this.categories.push(form.value);
-      this.http.put(this.categoryDbUrl, this.categories).subscribe();
+      this.categoryService.saveCategoriesToDb(this.categories).subscribe();
   }
 
-  deleteCategory(category: any) {
+  deleteCategory(category: {id: number, name: string}) {
     const index = this.categories.indexOf(category);
     this.categories.splice(index,1);
-    sessionStorage.setItem("kategooria", JSON.stringify(this.categories));
+    this.categoryService.saveCategoriesToDb(this.categories).subscribe();
   
   }
   //kustutamine -- kodus!!
 }
+
+// 1.Udemy projektid / Koolituse projektid / Youtube
+// 2.Teistest failidest kopeerida
+// 3.Googeldamine - How to delete from array Angular

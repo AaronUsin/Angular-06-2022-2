@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
+import { CategoryService } from 'src/app/services/category.service';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-add-product',
@@ -11,22 +13,24 @@ import { Product } from 'src/app/models/product.model';
 })
 export class AddProductComponent implements OnInit {
   private products: Product[] = [];
-  private productDbUrl = "https://webshop-project-f0a42-default-rtdb.europe-west1.firebasedatabase.app/products.json"
+ 
   buttonDisabled = true;
   message = "";
   categories: {id: number, name: string}[] = [];
-  private categoryDbUrl = "https://webshop-project-f0a42-default-rtdb.europe-west1.firebasedatabase.app/categories.json"
+ 
 
   constructor(private http: HttpClient,
-    private router: Router) { }
+    private router: Router,
+    private productService: ProductService,
+    private categoryService: CategoryService) { }
 
   ngOnInit(): void {
-    this.http.get<Product[]>(this.productDbUrl).subscribe(productsFromDb => {
+    .subscribe(productsFromDb => {
       if(productsFromDb) {
       this.products = productsFromDb;
       }
     })
-    this.http.get<{id: number, name: string}[]>(this.categoryDbUrl).subscribe(categoriesFromDb => {
+    this.categoryService.getCategoriesFromDb().subscribe(categoriesFromDb => {
       if (categoriesFromDb) {
       this.categories = categoriesFromDb;
       }

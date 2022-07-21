@@ -16,19 +16,28 @@ export class EditProductComponent implements OnInit {
   private productDbUrl = "https://webshop-project-f0a42-default-rtdb.europe-west1.firebasedatabase.app/products.json"
   editProductForm!: FormGroup; //loodud TS poolel
   infoOpen = false;
+  categories: {id: number, name: string}[] = [];
+  private categoryDbUrl = "https://webshop-project-f0a42-default-rtdb.europe-west1.firebasedatabase.app/categories.json"
+
 
     constructor(private route: ActivatedRoute, 
       private http: HttpClient,
       private router: Router) { }
   
     ngOnInit(): void {
-    const productId = this.route.snapshot.paramMap.get("id");
-    this.http.get<Product[]>(this.productDbUrl).subscribe(productsFromDb => {
-      this.products = productsFromDb
-      const productFound = this.products.find(element => Number(element.id) === Number(productId));
-      if (productFound !== undefined) {
-        this.product = productFound;
-        this.editProductForm = new FormGroup({
+      this.http.get<{id: number, name: string}[]>(this.categoryDbUrl).subscribe(categoriesFromDb => {
+        if (categoriesFromDb) {
+          this.categories = categoriesFromDb;
+        }
+      });
+
+      const productId = this.route.snapshot.paramMap.get("id");
+      this.http.get<Product[]>(this.productDbUrl).subscribe(productsFromDb => {
+        this.products = productsFromDb
+        const productFound = this.products.find(element => Number(element.id) === Number(productId));
+        if (productFound !== undefined) {
+          this.product = productFound;
+          this.editProductForm = new FormGroup({
           id: new FormControl(this.product.id),
           name: new FormControl(this.product.name),
           category: new FormControl(this.product.category),

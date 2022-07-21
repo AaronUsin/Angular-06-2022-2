@@ -9,6 +9,8 @@
     },
 "navbar":{
     "admin-button":"Admini vaatesse",
-    "cart-button":"Ostukorvi"
+    "cart-button":"Ostukorvi",
+    "shops-button":"Poed"
+
 }
 }

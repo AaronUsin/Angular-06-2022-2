@@ -97,12 +97,14 @@ private productURLDb = "https://webshop-project-f0a42-default-rtdb.europe-west1.
 //Ostukorvi kujundus
 //Ostukorv - kogustega
 //Kategooriate valimine Dropdown menüüst, kui lisan või muudan
-
 //Kategooriad ka andmebaasi - võimaldame kategooriaid lisada, vaadata, kustutada
+
 //Kaardirakenduse - võimaldaks vaadata meie poode Eesti kaardil (nagu G Maps - Leaflet)
 //Omniva pakiautomaadid kasutusele
 //E-maili saatmine - tagasiside / tellimus on tehtud
 //Number Navbari
+
+// 70 ak/h / 4  17.5
 
 //Nortali proovitöö e-mailile
 
@@ -111,3 +113,11 @@ private productURLDb = "https://webshop-project-f0a42-default-rtdb.europe-west1.
 //
 //Piltide üleslaadimine Firebase keskkonda
 //Karusell-galerii kasutuselevõtt
+
+//Nortali proovitöö Google Drive's -> emailile
+
+// Iseseisva projekt ideed:
+// 1. Mõne kodutöö edasiarendus
+// 2. Webshop edasiarendus
+// 3. Projekt internetist -> Udemy'st/Youtube'st
+// 4. Ise väljamõeldud projekt - WRC app, Muusik koduleht, 

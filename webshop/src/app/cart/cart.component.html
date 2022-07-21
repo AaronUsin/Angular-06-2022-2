@@ -20,3 +20,6 @@
 </div>
 
 <div class="cart-sum" *ngIf="cart.length > 0">Cart sum:{{allPrice | productPrice}}</div>
+<select>
+    <option *ngFor="let pm of parcelMachines"> {{pm.NAME}} </option>
+</select>
