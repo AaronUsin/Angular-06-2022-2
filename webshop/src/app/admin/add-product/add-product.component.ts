@@ -13,19 +13,18 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class AddProductComponent implements OnInit {
   private products: Product[] = [];
- 
   buttonDisabled = true;
   message = "";
   categories: {id: number, name: string}[] = [];
  
 
-  constructor(private http: HttpClient,
+  constructor(
     private router: Router,
     private productService: ProductService,
     private categoryService: CategoryService) { }
 
   ngOnInit(): void {
-    .subscribe(productsFromDb => {
+    this.productService.getProductsFromDb().subscribe(productsFromDb => {
       if(productsFromDb) {
       this.products = productsFromDb;
       }
@@ -64,7 +63,7 @@ export class AddProductComponent implements OnInit {
     // this.products[index] = this.editProductForm.value; 
     this.products.push(form.value);
     //asendan ära kõik tooted andmebaasis PUT abil
-    this.http.put(this.productDbUrl, this.products).subscribe(() => {
+    this.productService.saveProductsToDb(this.products).subscribe(() => {
     //suunamine /admin/halda-tooteid (HTML-is routerLink="/admin/halda-tooteid")
     this.router.navigateByUrl("/admin/halda-tooteid");
   });
