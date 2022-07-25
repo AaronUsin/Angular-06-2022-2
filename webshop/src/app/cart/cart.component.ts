@@ -11,8 +11,9 @@ import { ParcelMachineService } from '../services/parcel-machine.service';
 })
 export class CartComponent implements OnInit {
 cart: CartProduct[] = [];
-allPrice=0
+allPrice = 0
 parcelMachines: any = [];
+selectedPM = sessionStorage.getItem("parcelMachine") || "";
 
   constructor(private parcelMachineService: ParcelMachineService) { }
 
@@ -57,6 +58,25 @@ this.cart.forEach(element => this.allPrice = this.allPrice + element.product.pri
 
   deleteAll() {
     this.cart = [];
+    sessionStorage.setItem("cart",JSON.stringify(this.cart));
+    this.deleteSelectedPM();
+    this.calculatePrice();
+  }
+
+  selectParcelMachine() {
+   sessionStorage.setItem("parcelMachine", this.selectedPM);
+   this.cart.push({product:{id: 1, name: "Pakiautomaadi tasu",price: 3.5, imgSrc: "assets/locker.png",description: "", category: "", isActive: true}, 
+   quantity: 1
+   });
+   sessionStorage.setItem("cart",JSON.stringify(this.cart));
+   this.calculatePrice();
+  }
+
+  deleteSelectedPM(){
+    this.selectedPM = "";
+    sessionStorage.removeItem("parcelMachine");
+    const index = this.cart.findIndex(element => element.product.id === 1);
+    this.cart.splice(index,1);
     sessionStorage.setItem("cart",JSON.stringify(this.cart));
     this.calculatePrice();
   }

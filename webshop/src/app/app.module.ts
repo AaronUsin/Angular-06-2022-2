@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-
+import { CarouselModule } from '@coreui/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,7 +22,8 @@ import { ProductPricePipe } from './pipes/product-price.pipe';
 import { ShortenDescriptionPipe } from './pipes/shorten-description.pipe';
 import { CategoryComponent } from './admin/category/category.component';
 import { ShopsComponent } from './shops/shops.component';
-import { MapComponent } from './map/map.component'; 
+import { MapComponent } from './map/map.component';
+import { AboutUsComponent } from './about-us/about-us.component'; 
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { MapComponent } from './map/map.component';
     ShortenDescriptionPipe,
     CategoryComponent,
     ShopsComponent,
-    MapComponent
+    MapComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +51,7 @@ import { MapComponent } from './map/map.component';
     ReactiveFormsModule,
     AngularToastifyModule,
     HttpClientModule,
+    CarouselModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

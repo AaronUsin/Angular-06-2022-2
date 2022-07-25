@@ -10,6 +10,7 @@ import { Product } from '../models/product.model';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  slides: any[] = new Array(3).fill({id: -1, src: '', title: '', subtitle: ''});
   // 1. võtta kõikide toodete küljest kategooria [{},{},{}].map() -- ["","",""]
   // 2. võtta korduvad kategooriad ära["",""]
   // 3. kuvame HTMLs ngFor abil
@@ -30,6 +31,25 @@ private productURLDb = "https://webshop-project-f0a42-default-rtdb.europe-west1.
     private http: HttpClient ) { }
 
   ngOnInit(): void {
+    this.slides[0] = {
+      id: 0,
+      src: './assets/img/angular.jpg',
+      title: 'First slide',
+      subtitle: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
+    };
+    this.slides[1] = {
+      id: 1,
+      src: './assets/img/react.jpg',
+      title: 'Second slide',
+      subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    }
+    this.slides[2] = {
+      id: 2,
+      src: './assets/img/vue.jpg',
+      title: 'Third slide',
+      subtitle: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
+    }
+  
     this.http.get<Product[]>(this.productURLDb).subscribe(productsFromDb => {
       this.products = productsFromDb;
       this.originalProducts = productsFromDb;
@@ -65,7 +85,12 @@ private productURLDb = "https://webshop-project-f0a42-default-rtdb.europe-west1.
       cart[index].quantity = cart[index].quantity + 1;
     } else {
       // lisan juurde
+      const pmIndex = cart.findIndex(element => element.product.id === 1);
+      if(pmIndex >= 0) { 
+        cart.splice(cart.length-1, 0, {product: productClicked, quantity: 1});
+      } else {
       cart.push({product: productClicked, quantity: 1})
+      }
     };
    // cart.push(productClicked); //push lisab lõppu toote juurde,
     sessionStorage.setItem("cart", JSON.stringify(cart));

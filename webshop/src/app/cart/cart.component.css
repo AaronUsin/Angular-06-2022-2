@@ -48,3 +48,8 @@
 .cart-sum {
     width: 700px;
 }
+
+.button-disabled:hover {
+    opacity: 0.3;
+    cursor: not-allowed;
+}

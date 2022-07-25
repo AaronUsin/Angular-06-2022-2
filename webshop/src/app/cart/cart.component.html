@@ -11,15 +11,25 @@
     <div class="product-name">{{cartProduct.product.name}}</div>
     <div class="product-price"> {{cartProduct.product.price | productPrice}} </div>
     <div class="quantity-controls">
-        <img class="product-button" src="assets/minus.png" (click)="decreaseQuantity(cartProduct)"/>
+        <img class="product-button" 
+        [ngClass]="{'button-disabled': cartProduct.product.id === 1}" 
+        src="assets/minus.png" 
+        (click)="cartProduct.product.id !== 1 && decreaseQuantity(cartProduct)"/>
         <div class="product-quantity"> {{cartProduct.quantity}} tk</div>
-        <img class="product-button" src="assets/plus.png" (click)="increaseQuantity(cartProduct)"/>
+        <img class="product-button" 
+        [ngClass]="{'button-disabled': cartProduct.product.id === 1}" 
+        src="assets/plus.png" 
+        (click)="cartProduct.product.id !== 1 && increaseQuantity(cartProduct)"/>
     </div>
     <div class="product-total"> {{(cartProduct.product.price * cartProduct.quantity) | productPrice}} </div>
-    <img class="product-button" src="assets/remove.png" (click)="removeProduct(cartProduct)"/>
+    <img class="product-button" 
+        [ngClass]="{'button-disabled': cartProduct.product.id === 1}" 
+        src="assets/remove.png" (click)="cartProduct.product.id !== 1 && removeProduct(cartProduct)"/>
 </div>
 
 <div class="cart-sum" *ngIf="cart.length > 0">Cart sum:{{allPrice | productPrice}}</div>
-<select>
+<select  (change)="selectParcelMachine()" [(ngModel)]="selectedPM" *ngIf="cart.length > 0 && selectedPM === ''">
+    <option value="" disabled>Vali pakiautomaat</option>
     <option *ngFor="let pm of parcelMachines"> {{pm.NAME}} </option>
 </select>
+<div *ngIf="selectedPM !== ''"> {{selectedPM}} <button (click)="deleteSelectedPM()">x</button></div>
