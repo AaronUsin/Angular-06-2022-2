@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CartProduct } from '../models/cart_product.model';
 import { ParcelMachineService } from '../services/parcel-machine.service';
+import { ProductService } from '../services/product.service';
 
 
 @Component({
@@ -15,7 +16,8 @@ allPrice = 0
 parcelMachines: any = [];
 selectedPM = sessionStorage.getItem("parcelMachine") || "";
 
-  constructor(private parcelMachineService: ParcelMachineService) { }
+  constructor(private parcelMachineService: ParcelMachineService, 
+    private productService: ProductService) { }
 
   ngOnInit(): void {
     this.parcelMachineService.getParcelMachines().subscribe(parcelMachines => {
@@ -54,6 +56,7 @@ selectedPM = sessionStorage.getItem("parcelMachine") || "";
   calculatePrice(){
 this.allPrice = 0;
 this.cart.forEach(element => this.allPrice = this.allPrice + element.product.price * element.quantity);
+this.productService.cartChanged.next(true);
   }
 
   deleteAll() {

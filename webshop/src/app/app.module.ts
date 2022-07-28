@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CarouselModule } from '@coreui/angular';
 
@@ -23,7 +24,10 @@ import { ShortenDescriptionPipe } from './pipes/shorten-description.pipe';
 import { CategoryComponent } from './admin/category/category.component';
 import { ShopsComponent } from './shops/shops.component';
 import { MapComponent } from './map/map.component';
-import { AboutUsComponent } from './about-us/about-us.component'; 
+import { AboutUsComponent } from './about-us/about-us.component';
+import { NortalComponent } from './nortal/nortal.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { SpinnerComponent } from './spinner/spinner.component'; 
 
 
 @NgModule({
@@ -42,7 +46,10 @@ import { AboutUsComponent } from './about-us/about-us.component';
     CategoryComponent,
     ShopsComponent,
     MapComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    NortalComponent,
+    NotFoundComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +59,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     AngularToastifyModule,
     HttpClientModule,
     CarouselModule,
+    BrowserAnimationsModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

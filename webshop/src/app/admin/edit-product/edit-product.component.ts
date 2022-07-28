@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 
@@ -38,12 +38,12 @@ export class EditProductComponent implements OnInit {
         if (productFound !== undefined) {
           this.product = productFound;
           this.editProductForm = new FormGroup({
-          id: new FormControl(this.product.id),
-          name: new FormControl(this.product.name),
-          category: new FormControl(this.product.category),
-          imgSrc: new FormControl(this.product.imgSrc),
-          description: new FormControl(this.product.description),
-          price: new FormControl(this.product.price),
+          id: new FormControl(this.product.id, Validators.required),
+          name: new FormControl(this.product.name, Validators.required),
+          category: new FormControl(this.product.category, Validators.required),
+          imgSrc: new FormControl(this.product.imgSrc, [Validators.required, Validators.pattern(/^\S*$/)]),
+          description: new FormControl(this.product.description, Validators.required),
+          price: new FormControl(this.product.price, [Validators.required, Validators.pattern(/^[0-9]*$/)]),
           isActive: new FormControl(this.product.isActive)
          })
       }
