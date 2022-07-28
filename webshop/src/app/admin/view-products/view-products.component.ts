@@ -39,8 +39,10 @@ export class ViewProductsComponent implements OnInit {
     //otsin üles j.k numbri
     const index = this.products.indexOf(product);
     console.log(index)
+    console.log(this.products)
     //kustutan products muutujast
     this.products.splice(index,1);
+    console.log(this.products)
     //asendan ära kõik tooted andmebaasis PUT abil
     this.http.put(this.productURLDb, this.products).subscribe();
   };
