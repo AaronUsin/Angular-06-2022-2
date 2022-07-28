@@ -9,12 +9,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     EmployeesComponent,
     ProductsComponent,
-    NavbarComponent
+    NavbarComponent,
+    
+
   ],
   imports: [
     BrowserModule,
