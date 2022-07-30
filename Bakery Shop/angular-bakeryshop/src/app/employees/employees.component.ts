@@ -23,15 +23,23 @@ export class EmployeesComponent implements OnInit {
     this.form = this.fb.group({ // TODO: Add validations
       id: [''],
       name: [''],
-      email: ['']
+      email: [''],
+      avatar: ['']
     });
   }
 
-  addEmployee(): void {
+  addEmployee(form: any): void {
     // TODO: Add an employee to the table
+    let employees = [];
+    let employeesLS = localStorage.getItem("employees");
+    if (employeesLS !== null){
+      employees = JSON.parse(employeesLS);
+    }
+    employees.push(form.value);
+  localStorage.setItem("employees", JSON.stringify(employees));
   }
 
-  deleteEmployee(employee): void {
+  deleteEmployee(employee: any): void {
     // TODO: Delete an employee from the table
   }
 }
