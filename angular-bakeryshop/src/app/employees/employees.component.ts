@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Employee } from './employee';
 import { EmployeeService } from './employee.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { EmployeeService } from './employee.service';
   styleUrls: ['./employees.component.scss']
 })
 export class EmployeesComponent implements OnInit {
-
+  employees: any[]=[];
+  employeess: Employee[]=[]
   form: FormGroup;
 
   constructor(private employeeService: EmployeeService,
@@ -16,6 +18,9 @@ export class EmployeesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.employeeService.getEmployees().subscribe(employeesFromAPI => {
+      this.employees = employeesFromAPI.data;
+    })
     this.initForm();
   }
 
@@ -23,7 +28,8 @@ export class EmployeesComponent implements OnInit {
     this.form = this.fb.group({ // TODO: Add validations
       id: [''],
       name: [''],
-      email: ['']
+      email: [''],
+      avatar: ['']
     });
   }
 
@@ -31,7 +37,12 @@ export class EmployeesComponent implements OnInit {
     // TODO: Add an employee to the table
   }
 
-  deleteEmployee(employee): void {
+  deleteEmployee(employee: Employee): void {
     // TODO: Delete an employee from the table
+    const index = this.employeess.indexOf(employee);
+    console.log(index)
+    console.log(this.employeess)
+    this.employeess.splice(index,1);
+    console.log(this.employeess)
   }
 }
