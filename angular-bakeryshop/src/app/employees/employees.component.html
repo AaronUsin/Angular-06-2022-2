@@ -13,25 +13,19 @@
     <tbody>
     <tr *ngFor="let e of employees">
       <td> {{e.id}} </td>
-      <td> {{e.first_name}} {{e.last_name}} </td>
+      <td> {{e.first_name}} {{e.last_name}} {{e.name}}</td>
       <td> {{e.email}} </td>
-      <td> {{e.avatar}} </td>
-      <td><button type="button" class="btn btn-danger">Delete</button></td>
+      <td> <img src="{{e.avatar}}" alt=""> </td>
+      <td><button type="button" class="btn btn-danger" (click)="deleteEmployee(e)">Delete</button></td>
     </tr>
-    <tr>
-      <td>124</td>
-      <td>Added name 2</td>
-      <td>email2@email.com</td>
-      <td></td>
-      <td><button (click)="deleteEmployee()" type="button" class="btn btn-danger" >Delete</button></td>
-    </tr>
+    
 
     <tr class="input-row" [formGroup]="form">
       <td><input formControlName="id" type="text" placeholder="ID" class="form-control"></td>
       <td><input formControlName="name" type="text" placeholder="Name" class="form-control"></td>
       <td><input formControlName="email" type="text" placeholder="Email" class="form-control"></td>
       <td><input formControlName="avatar" type="text" placeholder="Avatar" class="form-control"></td>
-      <td><button type="submit" class="btn btn-success" style="width: 70px">Add</button></td>
+      <td><button type="submit" class="btn btn-success" style="width: 70px" (click)="addEmployee()" [disabled]="form.invalid">Add</button></td>
     </tr>
     </tbody>
   </table>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Employee } from './employee';
 import { EmployeeService } from './employee.service';
 
@@ -10,7 +10,7 @@ import { EmployeeService } from './employee.service';
 })
 export class EmployeesComponent implements OnInit {
   employees: any[]=[];
-  employeess: Employee[]=[]
+  
   form: FormGroup;
 
   constructor(private employeeService: EmployeeService,
@@ -20,29 +20,34 @@ export class EmployeesComponent implements OnInit {
   ngOnInit() {
     this.employeeService.getEmployees().subscribe(employeesFromAPI => {
       this.employees = employeesFromAPI.data;
-    })
+    });
     this.initForm();
   }
 
   private initForm(): void {
     this.form = this.fb.group({ // TODO: Add validations
-      id: [''],
-      name: [''],
-      email: [''],
-      avatar: ['']
+      id: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]], //regex only numbers otsing
+      name: ['', [Validators.required, Validators.pattern(/^[a-zA-ZäöüßÄÖÜ\s]+$/)]],
+      email: ['', [Validators.required, Validators.email]],
+      avatar: ['', Validators.required]
     });
   }
 
   addEmployee(): void {
     // TODO: Add an employee to the table
+    const newEmployee: any = {
+      id: this.form.get('id').value,
+      name: this.form.get('name').value,
+      email: this.form.get('email').value,
+      avatar: this.form.get('avatar').value
+    };
+    this.employees.push(newEmployee);
+    this.initForm();
   }
 
-  deleteEmployee(employee: Employee): void {
+  deleteEmployee(employee): void {
     // TODO: Delete an employee from the table
-    const index = this.employeess.indexOf(employee);
-    console.log(index)
-    console.log(this.employeess)
-    this.employeess.splice(index,1);
-    console.log(this.employeess)
+   const index = this.employees.indexOf(employee);
+   this.employees.splice(index,1);
   }
 }

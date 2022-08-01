@@ -20,7 +20,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
     this.initForm();
     this.productService.getProducts().subscribe((products) => {
-      this.products = products;  // TODO: Order the products by price
+      this.products = products.sort((a,b) => a.price- b.price);  // TODO: Order the products by price
     });
   }
 
