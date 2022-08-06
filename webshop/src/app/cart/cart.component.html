@@ -28,6 +28,7 @@
 </div>
 
 <div class="cart-sum" *ngIf="cart.length > 0">Cart sum:{{allPrice | productPrice}}</div>
+
 <select  (change)="selectParcelMachine()" [(ngModel)]="selectedPM" *ngIf="cart.length > 0 && selectedPM === ''">
     <option value="" disabled>Vali pakiautomaat</option>
     <option *ngFor="let pm of parcelMachines"> {{pm.NAME}} </option>

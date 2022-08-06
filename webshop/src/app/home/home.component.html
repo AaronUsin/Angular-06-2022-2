@@ -40,20 +40,25 @@
 </div>
 
 
-<button (click)="sortAZ()" >Sorteeri A-Z</button>
-<button (click)="sortZA()" >Sorteeri Z-A</button>
-<button (click)="sortPriceAsc()" >Sorteeri hind kasvavalt</button>
-<button (click)="sortPriceDesc()" >Sorteeri hind kahanevalt</button>
 
+  
+  <button (click)="sortAZ()" >Sorteeri A-Z</button>
+  <button (click)="sortZA()" >Sorteeri Z-A</button>
+  <button (click)="sortPriceAsc()" >Sorteeri hind kasvavalt</button>
+  <button (click)="sortPriceDesc()" >Sorteeri hind kahanevalt</button>
 
-<div *ngFor="let product of products">
-    <div routerLink="toode/{{product.id}}">
+<section class="product">
+  <div class="product-container">
+    <div class="product-card" *ngFor="let product of products">
+      <div routerLink="toode/{{product.id}}">
         <img class="productImg" src="{{ product.imgSrc }}" alt="Product image">
         <div>{{product.name}}</div>
         <div> {{product.price | productPrice}} </div>
+      </div>
+      <button (click)="addToCart(product)" >{{'home.add-cart-button' | translate}}</button>
     </div>
-    <button (click)="addToCart(product)" >{{'home.add-cart-button' | translate}}</button>
-</div>
+  </div>
+</section>
 <lib-toastify-toast-container 
 [position]="'bottom-right'"
 [autoClose]="3000"
