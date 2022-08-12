@@ -1,3 +1,4 @@
+
 <button *ngIf="cart.length > 0" (click)="deleteAll()">Clear selection</button>
 <div *ngIf="cart.length === 0"><img src="assets/preview.png" alt="Cart empty"> <br>
     Cart empty!
@@ -34,3 +35,4 @@
     <option *ngFor="let pm of parcelMachines"> {{pm.NAME}} </option>
 </select>
 <div *ngIf="selectedPM !== ''"> {{selectedPM}} <button (click)="deleteSelectedPM()">x</button></div>
+<br>

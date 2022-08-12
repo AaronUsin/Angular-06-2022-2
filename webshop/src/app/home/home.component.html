@@ -1,3 +1,4 @@
+
 <c-carousel [dark]="true" [wrap]="false">
     <c-carousel-indicators></c-carousel-indicators>
     <c-carousel-inner>
@@ -31,22 +32,23 @@
 <div> {{tekst | titlecase}} </div>
 <div> {{tekst | lowercase}} </div>
 <br> -->
+<div class="homepage">
 <app-spinner *ngIf="isLoading"></app-spinner><br>
 
 <div>Kokku on {{ products.length }} toodet</div>
-<div [ngClass]="{'active-category': selectedCategory === 'all'}" (click)="selectCategory('all')">All categories</div>
-<div [ngClass]="{'active-category': selectedCategory === category}" (click)="selectCategory(category)" *ngFor="let category of categories">
+<div class="ctgr" [ngClass]="{'active-category': selectedCategory === 'all'}" (click)="selectCategory('all')">All categories</div>
+<div class="ctgr" [ngClass]="{'active-category': selectedCategory === category}" (click)="selectCategory(category)" *ngFor="let category of categories">
     {{ category }}
-</div>
+</div><br>
 
 
 
   
-  <button (click)="sortAZ()" >Sorteeri A-Z</button>
-  <button (click)="sortZA()" >Sorteeri Z-A</button>
-  <button (click)="sortPriceAsc()" >Sorteeri hind kasvavalt</button>
-  <button (click)="sortPriceDesc()" >Sorteeri hind kahanevalt</button>
-
+  <button class="btn btn-warning" (click)="sortAZ()" >Sorteeri A-Z</button>
+  <button class="btn btn-warning" (click)="sortZA()" >Sorteeri Z-A</button>
+  <button class="btn btn-warning" (click)="sortPriceAsc()" >Sorteeri hind kasvavalt</button>
+  <button class="btn btn-warning" (click)="sortPriceDesc()" >Sorteeri hind kahanevalt</button>
+</div>
 <section class="product">
   <div class="product-container">
     <div class="product-card" *ngFor="let product of products">
@@ -55,7 +57,7 @@
         <div>{{product.name}}</div>
         <div> {{product.price | productPrice}} </div>
       </div>
-      <button (click)="addToCart(product)" >{{'home.add-cart-button' | translate}}</button>
+      <button class="btn btn-info btn-sm" (click)="addToCart(product)" >{{'home.add-cart-button' | translate}}</button>
     </div>
   </div>
 </section>

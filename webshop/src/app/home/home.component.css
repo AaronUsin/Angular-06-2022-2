@@ -1,22 +1,26 @@
+.ctgr{
+    cursor: pointer;
+}
+
 .active-category {
     font-weight: bold;
     text-decoration: underline;
+    
 }
 
 .product{
     position: relative;
     overflow: auto;
     padding: 10px 10px;
+    
 
 }
 
 .product-container{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     height: auto;
-    grid-row: 10px;
-    border: solid;
-   
+    
 }
 
 
@@ -24,13 +28,15 @@
     flex: 0 0 auto;
     width: 250px;
     height: 250px;
-    margin-right: 40px;
-    
+    margin: 5px 5px;
+    border: none;
+    cursor: pointer;
 }
 
 
 .productImg {
     height: 150px;
+    width: 100px;
 }
 
 .carousel-item img {
@@ -45,9 +51,7 @@
     margin: 0 10%;
 }
 
-table, th, td {
-    border: 1px solid black;
-}
-th, td {
-    padding: 10px;
+.homepage{
+    margin: 5px 5px;
+    padding: 10px 10px;
 }
