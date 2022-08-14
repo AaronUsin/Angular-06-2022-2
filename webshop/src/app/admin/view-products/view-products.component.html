@@ -1,3 +1,4 @@
+<div class="stuff">
 <input [(ngModel)]="descriptionLength" min="0" max="100" type="range">
 {{descriptionLength}}
 <br>
@@ -9,6 +10,7 @@
     <div>{{product.name}}</div>
     <div>{{product.description | shortenDescription:descriptionLength}}</div>
     <div> {{product.price | productPrice}} </div>
-    <button (click)="deleteProduct(product)" >X</button>
-    <button routerLink="/admin/muuda/{{product.id}}">Muuda</button>
+    <button class="btn btn-danger" (click)="deleteProduct(product)" >X</button>
+    <button class="btn btn-warning" routerLink="/admin/muuda/{{product.id}}">Muuda</button>
+</div>
 </div>

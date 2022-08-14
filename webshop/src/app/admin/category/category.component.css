@@ -9,3 +9,8 @@
     opacity: 0.7;
     transition: .5s;
 }
+
+.content{
+    margin: 5px 5px;
+    padding: 10px 10px;
+}

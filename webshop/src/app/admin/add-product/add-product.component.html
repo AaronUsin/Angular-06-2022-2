@@ -1,4 +1,6 @@
 <!-- form a-form ngForm -->
+<div class="stuff">
+
 <div> {{message}} </div>
 <form (ngSubmit)="onSubmit(form)" #form="ngForm">
     <label>ID</label><br>
@@ -20,3 +22,4 @@
     <input ngModel name="isActive" type="checkbox" required><br>
     <button [disabled]="buttonDisabled" class="btn btn-success">Sisesta</button>
 </form>
+</div>

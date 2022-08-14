@@ -26,7 +26,8 @@ isLoading = false;
   protsent = 0.5;
   number = 123123;
   tekst = "elas metsas mutionu";
-  
+
+searchedProduct!: string;
 selectedCategory = 'all'
 categories: string[]=[];
 products: Product[]=[];
@@ -121,8 +122,21 @@ private productURLDb = "https://webshop-project-f0a42-default-rtdb.europe-west1.
   sortPriceDesc() {
     this.products.sort((a,b) => b.price - a.price);
   }
-}
 
+
+searchProducts(){
+  console.log("töötab");
+  console.log(this.searchedProduct);
+  //filterdan kõik tooted, mida mul vaja läheb
+  //.filter(elemenr => true) [{1},{2},...,{240}] -> [{1},{2}] filterdab koguaeg vähemaks, 
+  //et seda vältida tegime uue paralleelse massiivi
+  this.products=this.originalProducts.filter(element => 
+    element.name.toLowerCase().indexOf(this.searchedProduct.toLowerCase()) >= 0 ||
+    element.id.toString().indexOf(this.searchedProduct.toLowerCase()) >= 0 ||
+    element.description.toLowerCase().indexOf(this.searchedProduct.toLowerCase()) >= 0
+  );
+}
+}
 
 //Muuda toode SingleProduct järgi, [formGroup]
 //Toodete haldamisel otsing [ me ] 240

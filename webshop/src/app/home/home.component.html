@@ -41,7 +41,9 @@
     {{ category }}
 </div><br>
 
-
+<div>Otsi toodet: </div>
+<input [(ngModel)]="searchedProduct" (ngModelChange)="searchProducts()" type="text">
+<br><br>
 
   
   <button class="btn btn-warning" (click)="sortAZ()" >Sorteeri A-Z</button>

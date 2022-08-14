@@ -27,7 +27,8 @@ import { MapComponent } from './map/map.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { NortalComponent } from './nortal/nortal.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { SpinnerComponent } from './spinner/spinner.component'; 
+import { SpinnerComponent } from './spinner/spinner.component';
+import { FooterComponent } from './footer/footer.component'; 
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     AboutUsComponent,
     NortalComponent,
     NotFoundComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
