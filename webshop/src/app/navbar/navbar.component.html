@@ -12,13 +12,11 @@
           <a class="nav-link" routerLink="/poed">{{"navbar.shops-button" | translate }}</a>
           <a class="nav-link" routerLink="/meist">Meist</a>
           <a class="nav-link" routerLink="/nortal">Nortal</a>
-          <div class="items">
+        </div>
+      </div> 
             <img class="lang" (click)="changeLanguage('en')" src="assets/english.png" alt="">
             <img class="lang" (click)="changeLanguage('ee')" src="assets/estonian.png" alt="">
             <img class="lang" (click)="changeLanguage('ru')" src="assets/russian.png" alt="">
-          </div>
-          <div class="items"> {{ cartSum | productPrice }} </div>
-        </div>
-      </div>
+            <div> {{ cartSum | productPrice }}</div>
     </div>
   </nav>

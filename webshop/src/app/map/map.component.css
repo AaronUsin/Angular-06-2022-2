@@ -1,5 +1,5 @@
 .map-container {
-    position: fixed;
+    position: absolute;
     top: 300px;
     left: 0;
     right: 0;
@@ -19,4 +19,8 @@
   .content{
     margin: 5px 5px;
     padding: 10px 10px;
+  }
+
+  .shops{
+    margin-bottom: 800px;
   }
