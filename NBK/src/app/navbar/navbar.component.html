@@ -1,1 +1,71 @@
-<p>navbar works!</p>
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/"><img width="200px" height="200px" src="assets/NBK-logoikoon-2022.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+      data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown" ngbDropdown>
+                <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                  Vajan abi
+                </a>
+                <ul class="dropdown-menu"  ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+                  <li ngbDropdownItem><a class="dropdown-item" href="#">TTT - Tervikliku Tervenemise Teenistus</a></li>
+                  <li ngbDropdownItem><a class="dropdown-item" href="#">Hingehoid</a></li>
+                  <li ngbDropdownItem><a class="dropdown-item" href="#">Tervenduskoda</a></li>
+                  <li ngbDropdownItem><a class="dropdown-item" href="#">Patusepalve</a></li>
+                  <li ngbDropdownItem><a class="dropdown-item" href="#">Palveabi</a></li>
+                  <li ngbDropdownItem><a class="dropdown-item" href="#">Toiduabi</a></li>
+                </ul>
+              </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Teenistuste ülekanded</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Võta osa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Kuukava</a>
+          </li>
+          <li class="nav-item dropdown" ngbDropdown>
+            <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+              Tööharud
+            </a>
+            <ul class="dropdown-menu"  ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+              <li ngbDropdownItem><a class="dropdown-item" href="#">Noor põlvkond</a></li>
+              <li ngbDropdownItem><a class="dropdown-item" href="#">Jüngerlus</a></li>
+              <li ngbDropdownItem><hr class="dropdown-divider"></li>
+              <li ngbDropdownItem><a class="dropdown-item" href="#">Palve ja osadus</a></li>
+              <li ngbDropdownItem><a class="dropdown-item" href="#">Isiklik eestpalve, abi</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown" ngbDropdown>
+            <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+              Meist
+            </a>
+            <ul class="dropdown-menu"  ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+              <li ngbDropdownItem><a class="dropdown-item" href="#">Baptistikogudus Nõmmel</a></li>
+              <li ngbDropdownItem><a class="dropdown-item" href="#">Ajalugu</a></li>
+              <li ngbDropdownItem><a class="dropdown-item" href="#">Kes on baptistid?</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown" ngbDropdown>
+            <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+              Kontaktid
+            </a>
+            <ul class="dropdown-menu"  ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+              <li ngbDropdownItem><a class="dropdown-item" href="#">Nõmme Baptistikogudus</a></li>
+              <li ngbDropdownItem><a class="dropdown-item" href="#">Juhtkond</a></li>
+              <li ngbDropdownItem><a class="dropdown-item" href="#">Valdkondade juhid</a></li>
+              <li ngbDropdownItem><a class="dropdown-item" href="#">Kodugruppide juhid</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Toeta</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
